@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Mattilha — Loja de Ferramentas e Recursos</title>
+    <meta name="description" content="Acesse as melhores ferramentas, métodos e pacotes da Mattilha.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0B0B0D;
+            --card: #131318;
+            --card-hover: #1a1a22;
+            --text: #F5F5F7;
+            --text-muted: #A1A1AA;
+            --primary: #E50914;
+            --primary-dark: #b5070f;
+            --primary-hover: #FF3B30;
+            --primary-glow: rgba(229, 9, 20, 0.25);
+            --success: #22c55e;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(255, 255, 255, 0.14);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --radius-pill: 99px;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+            --shadow-glow: 0 0 20px rgba(229, 9, 20, 0.15);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* Utilidades */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            font-family: inherit;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--border-highlight);
+        }
+
+        /* Ícones SVG base */
+        .icon {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(11, 11, 13, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding: 1rem 0;
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .logo img {
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 480px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-pill);
+            padding: 0.75rem 1.25rem 0.75rem 2.8rem;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.9rem;
+            transition: border-color 0.2s;
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .search-bar svg {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            width: 18px;
+            height: 18px;
+            pointer-events: none;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .icon-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--primary);
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 100px;
+            min-height: 100vh;
+        }
+
+        /* Hero Status */
+        .hero {
+            padding: 3rem 0;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(229, 9, 20, 0.1);
+            border: 1px solid rgba(229, 9, 20, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-pill);
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--primary);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.2);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin: 0 0 0.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0;
+        }
+
+        /* Categories */
+        .categories {
+            display: flex;
+            gap: 0.75rem;
+            overflow-x: auto;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            scrollbar-width: none;
+        }
+
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-pill {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 0.6rem 1.25rem;
+            border-radius: var(--radius-pill);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .cat-pill:hover,
+        .cat-pill.active {
+            background: var(--primary-glow);
+            border-color: var(--primary);
+            color: #fff;
+        }
+
+        /* Store Grid */
+        .store-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-highlight);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #222;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .product-info {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem;
+        }
+
+        .product-desc {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0 0 1.5rem;
+            flex: 1;
+        }
+
+        .product-price-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        .price-suffix {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin-bottom: 0.15rem;
+        }
+
+        .badges {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .badge.pix {
+            color: #32BCAD;
+            border-color: rgba(50, 188, 173, 0.3);
+            background: rgba(50, 188, 173, 0.1);
+        }
+
+        .product-card .btn-primary {
+            width: 100%;
+        }
+
+        /* Floating WhatsApp Button */
+        .float-wpp {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            color: #fff;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-pill);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s;
+            z-index: 90;
+            border: none;
+        }
+
+        .float-wpp:hover {
+            transform: scale(1.05);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                order: 3;
+                max-width: 100%;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .store-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .float-wpp {
+                bottom: 1.5rem;
+                right: 1.5rem;
+                padding: 0.75rem;
+            }
+
+            .float-wpp span {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Mattilha">
+            </a>
+
+            <div class="search-bar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <input type="text" placeholder="Buscar produtos, métodos, pacotes...">
+            </div>
+
+            <div class="header-actions">
+                <a href="index.html" class="btn btn-secondary"
+                    style="padding: 0.5rem 1rem; font-size: 0.85rem; border-color: transparent; background: transparent;"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="19" y1="12" x2="5" y2="12"></line>
+                        <polyline points="12 19 5 12 12 5"></polyline>
+                    </svg> Voltar</a>
+                <button class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.85rem;">Entrar</button>
+                <button class="icon-btn" aria-label="Carrinho">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Hero Status -->
+            <section class="hero">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    Central de Ferramentas Online
+                </div>
+                <h1>Eleve o nível da sua operação</h1>
+                <p>Métodos, pacotes e ferramentas exclusivas validadas pela Mattilha para acelerar seus resultados.</p>
+            </section>
+
+            <!-- Categories -->
+            <div class="categories">
+                <button class="cat-pill active">TODOS OS PRODUTOS</button>
+                <button class="cat-pill">MÉTODOS & PROCESSOS</button>
+                <button class="cat-pill">PACOTES DE DESIGN</button>
+                <button class="cat-pill">TEMPLATES</button>
+                <button class="cat-pill">MENTORIA</button>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="store-grid">
+
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <img src="banner.png" alt="Produto" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Pack de Landing Pages Alta Conversão</h3>
+                        <p class="product-desc">Templates exclusivos em HTML/CSS focados em conversão, prontos para
+                            plugar na sua operação.</p>
+
+                        <div class="badges">
+                            <span class="badge pix">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="currentColor" stroke="none">
+                                    <path
+                                        d="M22.094 13.784l-4.144 4.148a2.536 2.536 0 01-3.582 0l-1.92-1.921 5.37-5.37-1.127-1.127-5.37 5.37-1.922-1.922a2.537 2.537 0 010-3.583l4.145-4.144a2.536 2.536 0 013.582 0l4.968 4.967a2.537 2.537 0 010 3.582zm-20.188-3.568l4.144-4.148a2.536 2.536 0 013.582 0l1.92 1.921-5.37 5.37 1.127 1.127 5.37-5.37 1.922 1.922a2.537 2.537 0 010 3.583l-4.145 4.144a2.536 2.536 0 01-3.582 0L1.906 13.8a2.537 2.537 0 010-3.584z" />
+                                </svg>
+                                PIX 5% OFF
+                            </span>
+                            <span class="badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                    </path>
+                                </svg>
+                                Entrega Imediata
+                            </span>
+                        </div>
+
+                        <div class="product-price-row">
+                            <span class="price">R$ 147</span>
+                            <span class="price-suffix">à vista</span>
+                        </div>
+
+                        <button class="btn btn-primary">Comprar agora</button>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <img src="banner.png" alt="Produto" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Caixa Preta: Processo de Copywriting</h3>
+                        <p class="product-desc">O método exato que utilizamos para escrever copies que geram múltiplos 6
+                            dígitos.</p>
+
+                        <div class="badges">
+                            <span class="badge pix">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="currentColor" stroke="none">
+                                    <path
+                                        d="M22.094 13.784l-4.144 4.148a2.536 2.536 0 01-3.582 0l-1.92-1.921 5.37-5.37-1.127-1.127-5.37 5.37-1.922-1.922a2.537 2.537 0 010-3.583l4.145-4.144a2.536 2.536 0 013.582 0l4.968 4.967a2.537 2.537 0 010 3.582zm-20.188-3.568l4.144-4.148a2.536 2.536 0 013.582 0l1.92 1.921-5.37 5.37 1.127 1.127 5.37-5.37 1.922 1.922a2.537 2.537 0 010 3.583l-4.145 4.144a2.536 2.536 0 01-3.582 0L1.906 13.8a2.537 2.537 0 010-3.584z" />
+                                </svg>
+                                PIX 5% OFF
+                            </span>
+                        </div>
+
+                        <div class="product-price-row">
+                            <span class="price">R$ 297</span>
+                            <span class="price-suffix">à vista</span>
+                        </div>
+
+                        <button class="btn btn-primary">Comprar agora</button>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <img src="banner.png" alt="Produto" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Mentorias Gravadas T2</h3>
+                        <p class="product-desc">Acesso completo ao acervo de análises e diagnósticos da turma 2 da
+                            Mattilha.</p>
+
+                        <div class="badges">
+                            <span class="badge pix">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="currentColor" stroke="none">
+                                    <path
+                                        d="M22.094 13.784l-4.144 4.148a2.536 2.536 0 01-3.582 0l-1.92-1.921 5.37-5.37-1.127-1.127-5.37 5.37-1.922-1.922a2.537 2.537 0 010-3.583l4.145-4.144a2.536 2.536 0 013.582 0l4.968 4.967a2.537 2.537 0 010 3.582zm-20.188-3.568l4.144-4.148a2.536 2.536 0 013.582 0l1.92 1.921-5.37 5.37 1.127 1.127 5.37-5.37 1.922 1.922a2.537 2.537 0 010 3.583l-4.145 4.144a2.536 2.536 0 01-3.582 0L1.906 13.8a2.537 2.537 0 010-3.584z" />
+                                </svg>
+                                PIX 5% OFF
+                            </span>
+                        </div>
+
+                        <div class="product-price-row">
+                            <span class="price">R$ 497</span>
+                            <span class="price-suffix">à vista</span>
+                        </div>
+
+                        <button class="btn btn-primary">Comprar agora</button>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <img src="banner.png" alt="Produto" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Template Notion de Gestão</h3>
+                        <p class="product-desc">O mesmo workspace que utilizamos internamente para gerenciar projetos e
+                            time.</p>
+
+                        <div class="badges">
+                            <span class="badge">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                                    </path>
+                                </svg>
+                                Entrega Imediata
+                            </span>
+                        </div>
+
+                        <div class="product-price-row">
+                            <span class="price">R$ 97</span>
+                            <span class="price-suffix">à vista</span>
+                        </div>
+
+                        <button class="btn btn-primary">Comprar agora</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Floating WhatsApp -->
+    <a href="#" class="float-wpp" target="_blank" rel="noopener noreferrer">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+        </svg>
+        <span>Precisa de ajuda? Nos chame no WhatsApp</span>
+    </a>
+
+</body>
+
+</html>

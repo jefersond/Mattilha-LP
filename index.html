@@ -1,0 +1,2517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Mattilha — Seu ponto de virada para evoluir mais rápido</title>
+  <meta name="description"
+    content="Conteúdos organizados, trilhas práticas e uma comunidade com foco em resultado. Acesso imediato, organização por trilhas e atualizações constantes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0B0D;
+      --card: #131318;
+      --card-hover: #1a1a22;
+      --text: #F5F5F7;
+      --text-muted: #A1A1AA;
+      --primary: #E50914;
+      --primary-dark: #b5070f;
+      --primary-hover: #FF3B30;
+      --primary-glow: rgba(229, 9, 20, 0.25);
+      --success: #22c55e;
+      --success-bg: rgba(34, 197, 94, 0.08);
+      --success-border: rgba(34, 197, 94, 0.25);
+      --danger-bg: rgba(229, 9, 20, 0.08);
+      --danger-border: rgba(229, 9, 20, 0.25);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-highlight: rgba(255, 255, 255, 0.14);
+      --radius: 20px;
+      --radius-sm: 16px;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+      --shadow-glow: 0 0 40px rgba(229, 9, 20, 0.15), 0 8px 32px rgba(0, 0, 0, 0.4);
+      --section-pad: clamp(2.5rem, 6vw, 7rem);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
+    /* Header */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 1.5rem;
+      padding-top: max(1rem, env(safe-area-inset-top));
+      background: rgba(11, 11, 13, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: border-color .2s;
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 44px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 8px rgba(229, 9, 20, 0.5));
+    }
+
+    .logo:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 4px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    .nav a:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 4px;
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem 1.5rem;
+      font-family: inherit;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 4px;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--text-muted);
+      color: var(--text);
+    }
+
+    .btn-hero {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      min-height: 52px;
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+
+      .header {
+        padding: 0.75rem 1rem;
+      }
+
+      .header .btn {
+        padding: 0.65rem 1rem;
+        font-size: 0.875rem;
+        min-height: 44px;
+      }
+
+      .logo img {
+        height: 36px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .header .btn {
+        font-size: 0.8rem;
+        padding: 0.6rem 0.75rem;
+      }
+    }
+
+    main {
+      padding-top: 56px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        padding-top: 52px;
+      }
+    }
+
+    /* Hero */
+    .hero-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    /* Bloco do banner: altura fixa, cantos inferiores arredondados, borda e sombra para integrar à LP */
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      height: 72vh;
+      min-height: 420px;
+      max-height: 680px;
+      overflow: hidden;
+      border-radius: 0 0 28px 28px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-top: none;
+      box-shadow:
+        0 24px 48px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(229, 9, 20, 0.08) inset,
+        0 1px 0 0 rgba(255, 255, 255, 0.03) inset;
+    }
+
+    .hero-banner::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(229, 9, 20, 0.4) 20%, rgba(229, 9, 20, 0.6) 50%, rgba(229, 9, 20, 0.4) 80%, transparent 100%);
+      z-index: 3;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 25%, rgba(229, 9, 20, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 25% at 50% 10%, rgba(255, 59, 48, 0.05) 0%, transparent 60%);
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 80px 80px;
+    }
+
+    .hero-mascot {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(960px, 100vw);
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      z-index: 1;
+      filter: drop-shadow(0 0 20px rgba(229, 9, 20, 0.2));
+      opacity: 0;
+      animation: fadeUpBig .8s .1s ease forwards;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .hero-mascot-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 35%;
+      background: linear-gradient(to top, var(--bg) 0%, transparent 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero {
+      position: relative;
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto;
+      padding: var(--section-pad) 1.5rem 2rem;
+      width: 100%;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.85rem, 4.5vw, 2.8rem);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin: 0 0 1.25rem;
+      text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp .6s .5s ease forwards;
+    }
+
+    .hero .sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp .6s .65s ease forwards;
+    }
+
+    .hero-bullets {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem 2rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp .6s .8s ease forwards;
+    }
+
+    .hero-bullets span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 0.3rem 0.9rem;
+    }
+
+    .hero-bullets svg {
+      flex-shrink: 0;
+      color: var(--primary);
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp .6s .95s ease forwards;
+    }
+
+    .hero-ctas .btn {
+      min-width: 200px;
+    }
+
+    .hero-tagline {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--primary);
+      background: rgba(229, 9, 20, 0.1);
+      border: 1px solid rgba(229, 9, 20, 0.3);
+      border-radius: 99px;
+      padding: 0.3rem 1rem;
+      margin-bottom: 1.25rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp .6s .4s ease forwards;
+    }
+
+    .hero-social {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0 0 1.25rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp .6s .75s ease forwards;
+    }
+
+    @keyframes fadeUpBig {
+      to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-banner {
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        aspect-ratio: 16 / 9;
+        border-radius: 0 0 20px 20px;
+      }
+
+      .hero-mascot {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+      }
+
+      .hero {
+        padding: clamp(2rem, 6vw, 3rem) 1rem 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        line-height: 1.2;
+      }
+
+      .hero .sub {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-bullets {
+        gap: 0.5rem 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-bullets span {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.75rem;
+      }
+
+      .hero-ctas {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .hero-ctas .btn {
+        width: 100%;
+        min-width: 0;
+        min-height: 48px;
+      }
+
+      .hero-tagline {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.75rem;
+      }
+
+      .hero-social {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-banner {
+        aspect-ratio: 16 / 9;
+        border-radius: 0 0 16px 16px;
+      }
+
+      .hero-mascot {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 1.75rem 1rem 1.25rem;
+      }
+
+      .hero h1 {
+        font-size: 1.4rem;
+      }
+
+      .hero .sub {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .hero h1 {
+        font-size: 1.25rem;
+      }
+
+      .hero .sub {
+        font-size: 0.9rem;
+      }
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Sections common */
+    section {
+      padding: var(--section-pad) 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      section {
+        padding: 2rem 1rem;
+      }
+
+      .section-title {
+        font-size: 1.35rem;
+      }
+
+      .section-sub {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    /* Benefícios */
+    #beneficios .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      transition: border-color .2s, transform .15s;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 1.25rem;
+      }
+
+      .card h3 {
+        font-size: 1.05rem;
+      }
+
+      .card p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .card:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .card-icon {
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 768px) {
+      #beneficios .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Categorias */
+    #categorias .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .cat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+      text-align: center;
+      transition: border-color .2s, transform .15s;
+    }
+
+    .cat-card:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .cat-card .icon-wrap {
+      margin-bottom: 0.75rem;
+      color: var(--primary);
+    }
+
+    .cat-card span {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .categorias-fechamento {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 480px) {
+      .cat-card {
+        padding: 1rem;
+      }
+
+      .cat-card span {
+        font-size: 0.875rem;
+      }
+
+      .categorias-fechamento {
+        font-size: 0.85rem;
+        margin-top: 1rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      #categorias .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      #categorias .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Como funciona */
+    #como-funciona .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      counter-reset: step;
+    }
+
+    .step {
+      text-align: center;
+      position: relative;
+      counter-increment: step;
+    }
+
+    .step-num {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+    }
+
+    .step h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      #como-funciona .steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* O que você recebe */
+    #o-que-recebe .lista {
+      max-width: 560px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+
+    .lista ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .lista li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 480px) {
+      #o-que-recebe .lista {
+        padding: 1.25rem 1rem;
+        margin: 0 1rem;
+      }
+
+      .lista li {
+        font-size: 0.9rem;
+      }
+    }
+
+    .lista li:last-child {
+      border-bottom: none;
+    }
+
+    .lista .check {
+      color: var(--primary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Bônus */
+    #bonus .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+    }
+
+    .bonus-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+      transition: border-color .2s;
+    }
+
+    .bonus-card:hover {
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .bonus-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .bonus-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 0.4rem;
+    }
+
+    .bonus-card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .bonus-card .bonus-desc {
+      margin-bottom: 0.75rem;
+    }
+
+    .bonus-de {
+      text-decoration: line-through;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      margin: 0 0 0.25rem;
+    }
+
+    .bonus-gratis {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.8rem;
+      margin: 0;
+      letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 900px) {
+      #bonus .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      #bonus .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Depoimentos */
+    #depoimentos .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+
+    .depo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 1.5rem;
+    }
+
+    .depo-card .author {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .depo-card .author span {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .depo-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 900px) {
+      #depoimentos .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      #depoimentos .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Garantia */
+    #garantia {
+      text-align: center;
+    }
+
+    .garantia-box {
+      max-width: 560px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .garantia-icon {
+      width: 64px;
+      height: 64px;
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .garantia-box h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin: 0 0 0.5rem;
+    }
+
+    .garantia-box p {
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 480px) {
+      .garantia-box {
+        padding: 1.5rem 1rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .garantia-box h2 {
+        font-size: 1.25rem;
+        text-align: center;
+      }
+
+      .garantia-box p {
+        font-size: 0.9rem;
+        text-align: center;
+      }
+    }
+
+    /* Antes/Depois */
+    #antes-depois .cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .antes-depois-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+    }
+
+    .antes-depois-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 0 0 1rem;
+    }
+
+    .antes-depois-card ul {
+      margin: 0;
+      padding-left: 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .antes-depois-card li {
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      #antes-depois .cols {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Oferta */
+    #oferta {
+      text-align: center;
+      padding-bottom: var(--section-pad);
+    }
+
+    .oferta-box {
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+    }
+
+    .oferta-box h2 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin: 0 0 1.5rem;
+    }
+
+    .oferta-list {
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    .oferta-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .oferta-list .check {
+      color: var(--primary);
+      flex-shrink: 0;
+    }
+
+    .oferta-quanto {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin: 1.5rem 0 0.75rem;
+      color: var(--text);
+    }
+
+    .oferta-preco-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin: 0 0 0.25rem;
+      letter-spacing: 0.02em;
+    }
+
+    .preco-parcela {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin: 0 0 0.25rem;
+    }
+
+    .preco-avista {
+      color: var(--text-muted);
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .oferta-box .btn {
+      width: 100%;
+      padding: 1.1rem;
+      font-size: 1.05rem;
+      min-height: 56px;
+    }
+
+    .microcopy {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 1rem;
+    }
+
+    @media (max-width: 480px) {
+      .oferta-box {
+        padding: 1.5rem 1rem;
+      }
+
+      .oferta-box h2 {
+        font-size: 1.35rem;
+        margin-bottom: 1rem;
+      }
+
+      .preco-parcela {
+        font-size: 2rem;
+      }
+
+      .preco-avista {
+        font-size: 0.9rem;
+      }
+
+      .oferta-box .btn {
+        min-height: 48px;
+        padding: 1rem;
+      }
+
+      .microcopy {
+        font-size: 0.75rem;
+      }
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }
+
+    .faq-q {
+      margin-right: 0.5rem;
+    }
+
+    .faq-item summary {
+      padding: 1.1rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: '';
+      width: 20px;
+      height: 20px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23A1A1AA'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E") no-repeat center;
+      flex-shrink: 0;
+      transition: transform .25s;
+    }
+
+    .faq-item[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    .faq-item p {
+      margin: 0;
+      padding: 0 1.25rem 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 480px) {
+      .faq-item summary {
+        padding: 1rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .faq-item p {
+        padding: 0 1rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Footer */
+    footer {
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-links {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin: 0 0.75rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    .footer-legal {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0.5rem 0;
+    }
+
+    .footer-disclaimer {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      opacity: 0.9;
+      max-width: 560px;
+      margin: 0.5rem auto 0;
+    }
+
+    @media (max-width: 480px) {
+      footer {
+        padding: 1.5rem 1rem;
+      }
+
+      .footer-links a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      .footer-disclaimer {
+        font-size: 0.75rem;
+        padding: 0 0.5rem;
+      }
+    }
+
+    /* Scroll animations */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== PREMIUM UPGRADES ===== */
+
+    /* Shimmer button */
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, #c7000c 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+      transform: skewX(-20deg);
+      animation: shimmer 2.8s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        left: -100%;
+      }
+
+      60%,
+      100% {
+        left: 160%;
+      }
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px var(--primary-glow);
+    }
+
+    .btn-pulse {
+      animation: pulse-btn 2s infinite;
+    }
+
+    @keyframes pulse-btn {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 var(--primary-glow);
+      }
+
+      50% {
+        box-shadow: 0 0 0 10px transparent;
+      }
+    }
+
+    /* Cards glow on hover */
+    .card:hover {
+      border-color: rgba(229, 9, 20, 0.3);
+      box-shadow: 0 0 0 1px rgba(229, 9, 20, 0.1), 0 8px 32px rgba(0, 0, 0, 0.4);
+      transform: translateY(-3px);
+      background: var(--card-hover);
+    }
+
+    .card-icon svg {
+      transition: transform .3s ease;
+    }
+
+    .card:hover .card-icon svg {
+      transform: scale(1.15);
+    }
+
+    /* Ticker / Marquee strip */
+    .ticker-wrap {
+      width: 100%;
+      overflow: hidden;
+      background: rgba(229, 9, 20, 0.06);
+      border-top: 1px solid rgba(229, 9, 20, 0.15);
+      border-bottom: 1px solid rgba(229, 9, 20, 0.15);
+      padding: 0.65rem 0;
+      white-space: nowrap;
+    }
+
+    .ticker-track {
+      display: inline-flex;
+      gap: 0;
+      animation: ticker-scroll 28s linear infinite;
+    }
+
+    .ticker-track:hover {
+      animation-play-state: paused;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 0 2.5rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .ticker-item strong {
+      color: var(--primary);
+    }
+
+    .ticker-dot {
+      color: var(--primary);
+      font-size: 0.6rem;
+    }
+
+    @keyframes ticker-scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /* Hamburger / Mobile Menu */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      cursor: pointer;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform .3s ease, opacity .3s ease;
+      transform-origin: center;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 99;
+      background: rgba(11, 11, 13, 0.97);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      transition: opacity .25s ease;
+    }
+
+    .mobile-overlay.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .mobile-overlay a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+      transition: color .2s;
+    }
+
+    .mobile-overlay a:hover {
+      color: var(--primary);
+    }
+
+    .mobile-overlay .btn {
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      min-height: 52px;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Testimonial stars & avatar */
+    .depo-stars {
+      color: #f59e0b;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .depo-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+      margin-right: 0.6rem;
+    }
+
+    .depo-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .depo-info {
+      flex: 1;
+    }
+
+    .depo-card .author {
+      font-weight: 700;
+      font-size: 0.875rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .depo-time {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .depo-card {
+      border-top: 2px solid transparent;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .depo-card:hover {
+      border-top-color: var(--primary);
+      transform: translateY(-2px);
+    }
+
+    /* Antes/Depois — color coded */
+    .antes-card {
+      border-color: var(--danger-border);
+      background: rgba(229, 9, 20, 0.04);
+    }
+
+    .antes-card h3 {
+      color: #f87171;
+    }
+
+    .antes-card li::before {
+      content: '✗ ';
+      color: #f87171;
+      font-weight: 700;
+    }
+
+    .antes-card ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .depois-card {
+      border-color: var(--success-border);
+      background: rgba(34, 197, 94, 0.04);
+    }
+
+    .depois-card h3 {
+      color: var(--success);
+    }
+
+    .depois-card li::before {
+      content: '✓ ';
+      color: var(--success);
+      font-weight: 700;
+    }
+
+    .depois-card ul {
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .antes-depois-card li {
+      margin-bottom: 0.65rem;
+      font-size: 0.95rem;
+    }
+
+    /* Countdown timer */
+    .countdown-wrap {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .countdown-unit {
+      text-align: center;
+      background: rgba(229, 9, 20, 0.1);
+      border: 1px solid rgba(229, 9, 20, 0.2);
+      border-radius: 10px;
+      padding: 0.5rem 0.9rem;
+      min-width: 56px;
+    }
+
+    .countdown-num {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--primary);
+      line-height: 1;
+      display: block;
+    }
+
+    .countdown-label {
+      font-size: 0.6rem;
+      color: var(--text-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .urgency-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(229, 9, 20, 0.1);
+      border: 1px solid rgba(229, 9, 20, 0.3);
+      border-radius: 99px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    .urgency-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+      animation: blink 1.2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    @keyframes pulse-glow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.2);
+      }
+
+      50% {
+        box-shadow: 0 0 12px 2px rgba(229, 9, 20, 0.15);
+      }
+    }
+
+    /* Progress bar de vagas */
+    .vagas-bar-wrap {
+      margin: 1rem 0 1.5rem;
+      text-align: left;
+    }
+
+    .vagas-bar-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .vagas-bar-label strong {
+      color: var(--primary);
+    }
+
+    .vagas-bar-bg {
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 99px;
+      height: 6px;
+      overflow: hidden;
+    }
+
+    .vagas-bar-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+      width: 72%;
+      transition: width 1.2s ease;
+    }
+
+    /* Selos */
+    .selos {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1.25rem 0 0;
+    }
+
+    .selo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.3rem 0.65rem;
+    }
+
+    .selo svg {
+      color: var(--success);
+      flex-shrink: 0;
+    }
+
+    /* Sticky mobile CTA */
+    .sticky-cta {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 200;
+      background: rgba(11, 11, 13, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid rgba(229, 9, 20, 0.2);
+      padding: 0.85rem 1.25rem;
+      padding-bottom: max(0.85rem, env(safe-area-inset-bottom));
+    }
+
+    .sticky-cta a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
+      background: linear-gradient(135deg, var(--primary) 0%, #c7000c 100%);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border-radius: 14px;
+      padding: 0.9rem;
+      min-height: 50px;
+    }
+
+    @media (max-width: 768px) {
+      .sticky-cta {
+        display: block;
+      }
+
+      main,
+      footer {
+        padding-bottom: 80px;
+      }
+    }
+
+    /* Number counter badge */
+    .members-count-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 0.35rem 1rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp .6s .35s ease forwards;
+    }
+
+    .members-count-wrap .avatars {
+      display: flex;
+    }
+
+    .mini-avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid var(--bg);
+      margin-left: -6px;
+      font-size: 0.55rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mini-avatar:first-child {
+      margin-left: 0;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--success);
+      display: inline-block;
+      animation: blink 1.5s ease-in-out infinite;
+    }
+
+    /* Oferta box upgrade */
+    .oferta-box {
+      max-width: 520px;
+      margin: 0 auto;
+      background: var(--card);
+      border: 1px solid rgba(229, 9, 20, 0.2);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-glow);
+    }
+
+    .preco-destaque {
+      background: linear-gradient(135deg, var(--primary), #ff6b6b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Rateio Grid Section */
+    .rateio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .rateio-item {
+      background: #111111;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .rateio-item:hover {
+      background: #151515;
+      border-color: rgba(229, 9, 20, 0.3);
+      transform: translateY(-4px);
+    }
+
+    .rateio-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .rateio-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+
+    .rateio-desc {
+      font-size: 0.85rem;
+      color: #888;
+      line-height: 1.4;
+    }
+
+    .title-highlight {
+      color: var(--primary);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="Mattilha início">
+        <img src="logo.png" alt="Mattilha Pro">
+      </a>
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="#beneficios">Benefícios</a>
+        <a href="#rateio">Rateio</a>
+        <a href="loja.html">Loja</a>
+        <a href="#como-funciona">Como funciona</a>
+        <a href="#oferta">Oferta</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="https://pay.kiwify.com.br/BbE7lTK" target="_blank" rel="noopener" class="btn btn-primary">Quero
+        entrar</a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile overlay menu -->
+  <nav class="mobile-overlay" id="mobile-overlay" aria-label="Menu mobile">
+    <a href="#beneficios" class="mobile-nav-link">Benefícios</a>
+    <a href="#rateio" class="mobile-nav-link">Rateio & Ferramentas</a>
+    <a href="loja.html" class="mobile-nav-link">Loja</a>
+    <a href="#como-funciona" class="mobile-nav-link">Como funciona</a>
+    <a href="#oferta" class="mobile-nav-link">Oferta</a>
+    <a href="#faq" class="mobile-nav-link">FAQ</a>
+    <a href="https://pay.kiwify.com.br/BbE7lTK" target="_blank" rel="noopener" class="btn btn-primary">Garantir minha
+      vaga →</a>
+  </nav>
+
+  <main>
+    <div class="hero-wrapper">
+      <!-- Bloco do banner (altura fixa, borda e transição integrada) -->
+      <div class="hero-banner">
+        <div class="hero-bg"></div>
+        <img class="hero-mascot" src="banner.png" alt="Mattilha Pro — mascote" aria-hidden="true">
+        <div class="hero-mascot-fade"></div>
+      </div>
+      <!-- Conteúdo textual (começa exatamente onde o banner termina) -->
+      <section class="hero">
+        <div class="members-count-wrap">
+          <div class="avatars">
+            <div class="mini-avatar" style="background:#e50914;color:#fff">M</div>
+            <div class="mini-avatar" style="background:#7c3aed;color:#fff">R</div>
+            <div class="mini-avatar" style="background:#0284c7;color:#fff">A</div>
+            <div class="mini-avatar" style="background:#d97706;color:#fff">J</div>
+          </div>
+          <span class="live-dot"></span>
+          <span><strong style="color:var(--text)">+500 membros</strong> já estão evoluindo</span>
+        </div>
+        <p class="hero-tagline">TRILHAS + ATUALIZAÇÕES + COMUNIDADE</p>
+        <h1>A Mattilha é o seu ponto de virada para <span style="color:var(--primary)">evoluir mais rápido.</span></h1>
+        <p class="sub">Conteúdos organizados, trilhas práticas e uma comunidade com foco em resultado — tudo em um só
+          lugar.</p>
+        <div class="hero-bullets">
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M20 6L9 17l-5-5" />
+            </svg> Acesso imediato</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M20 6L9 17l-5-5" />
+            </svg> Organização por trilhas</span>
+          <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M20 6L9 17l-5-5" />
+            </svg> Atualizações constantes</span>
+        </div>
+        <p class="hero-social">Junte-se a quem já está evoluindo com a Mattilha.</p>
+        <div class="hero-ctas">
+          <a href="https://pay.kiwify.com.br/BbE7lTK" target="_blank" rel="noopener"
+            class="btn btn-primary btn-hero btn-pulse">Quero entrar na Mattilha →</a>
+          <a href="#categorias" class="btn btn-secondary btn-hero">Ver o que tem dentro</a>
+        </div>
+      </section>
+    </div>
+
+    <!-- Ticker social proof -->
+    <div class="ticker-wrap" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-item"><strong>+500</strong> membros ativos <span class="ticker-dot">●</span></span>
+        <span class="ticker-item"><strong>4.9/5</strong> de satisfação <span class="ticker-dot">●</span></span>
+        <span class="ticker-item"><strong>7 dias</strong> de garantia total <span class="ticker-dot">●</span></span>
+        <span class="ticker-item">Acesso <strong>imediato</strong> após pagamento <span
+            class="ticker-dot">●</span></span>
+        <span class="ticker-item">Trilhas do <strong>básico ao avançado</strong> <span
+            class="ticker-dot">●</span></span>
+        <span class="ticker-item">Pagamento <strong>100% seguro</strong> <span class="ticker-dot">●</span></span>
+        <span class="ticker-item"><strong>+500</strong> membros ativos <span class="ticker-dot">●</span></span>
+        <span class="ticker-item"><strong>4.9/5</strong> de satisfação <span class="ticker-dot">●</span></span>
+        <span class="ticker-item"><strong>7 dias</strong> de garantia total <span class="ticker-dot">●</span></span>
+        <span class="ticker-item">Acesso <strong>imediato</strong> após pagamento <span
+            class="ticker-dot">●</span></span>
+        <span class="ticker-item">Trilhas do <strong>básico ao avançado</strong> <span
+            class="ticker-dot">●</span></span>
+        <span class="ticker-item">Pagamento <strong>100% seguro</strong> <span class="ticker-dot">●</span></span>
+      </div>
+    </div>
+
+    <section id="beneficios" class="animate-on-scroll">
+      <h2 class="section-title">Tá, mas o que faz a Mattilha valer a pena?</h2>
+      <p class="section-sub">Tudo pensado pra você não perder tempo e ir direto ao que importa.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg></div>
+          <h3>Conteúdo organizado</h3>
+          <p>Menos caos, mais clareza do que estudar e quando.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 6v6l4 2" />
+            </svg></div>
+          <h3>Trilhas práticas</h3>
+          <p>Do básico ao avançado com passos objetivos.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <path d="M16 2v4M8 2v4M3 10h18" />
+            </svg></div>
+          <h3>Rotina simples</h3>
+          <p>Você sabe exatamente o que fazer no dia 1, 7 e 30.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== RATEIO E FERRAMENTAS SECTION ===== -->
+    <section id="rateio" class="animate-on-scroll">
+      <h2 class="section-title">ACESSO TOTAL AO NOSSO <span class="title-highlight">RATEIO & FERRAMENTAS</span></h2>
+      <p class="section-sub">Ferramentas premium, scripts e ativos que custam uma fortuna lá fora, liberados para você
+        usar.</p>
+
+      <div class="rateio-grid">
+        <div class="rateio-item">
+          <div class="rateio-icon">🛠️</div>
+          <div class="rateio-title">Source Code, SaaS & iGaming</div>
+          <div class="rateio-desc">O ativo mais valioso. Código da própria bet/software</div>
+        </div>
+
+        <div class="rateio-item">
+          <div class="rateio-icon">🛡️</div>
+          <div class="rateio-title">Contingência & Aquecimento de Chips</div>
+          <div class="rateio-desc">Ferramentas anti-bloqueio</div>
+        </div>
+
+        <div class="rateio-item">
+          <div class="rateio-icon">🔞</div>
+          <div class="rateio-title">Nicho Black & Hot (+18)</div>
+          <div class="rateio-desc">Conteúdo underground exclusivo</div>
+        </div>
+
+        <div class="rateio-item">
+          <div class="rateio-icon">🎨</div>
+          <div class="rateio-title">Pack de Design & Criativos Virais</div>
+          <div class="rateio-desc">Artes editáveis para anúncios</div>
+        </div>
+
+        <div class="rateio-item">
+          <div class="rateio-icon">🧩</div>
+          <div class="rateio-title">Pack de Extensões & Plugins Pro</div>
+          <div class="rateio-desc">Elementor Pro, WP Rocket, etc.</div>
+        </div>
+
+        <div class="rateio-item">
+          <div class="rateio-icon">📱</div>
+          <div class="rateio-title">APKs Mod & Apps Premium</div>
+          <div class="rateio-desc">Softwares pagos desbloqueados</div>
+        </div>
+
+        <div class="rateio-item">
+          <div class="rateio-icon">💾</div>
+          <div class="rateio-title">Pack de +30k PLRs Premium</div>
+          <div class="rateio-desc">Produto pronto para venda rápida</div>
+        </div>
+
+        <div class="rateio-item">
+          <div class="rateio-icon">🤖</div>
+          <div class="rateio-title">Robôs & Automação (Zap/Insta)</div>
+          <div class="rateio-desc">Ferramentas de eficiência</div>
+        </div>
+
+        <div class="rateio-item">
+          <div class="rateio-icon">📄</div>
+          <div class="rateio-title">Páginas de Vendas Clonadas</div>
+          <div class="rateio-desc">Modelos de alta conversão prontos</div>
+        </div>
+
+        <div class="rateio-item">
+          <div class="rateio-icon">💬</div>
+          <div class="rateio-title">Scripts de Venda & Copy Pronta</div>
+          <div class="rateio-desc">Arquivos para copiar e colar</div>
+        </div>
+
+        <div class="rateio-item">
+          <div class="rateio-icon">🔔</div>
+          <div class="rateio-title">Gerador de Prova Social</div>
+          <div class="rateio-desc">Notificações que aumentam conversão</div>
+        </div>
+
+        <div class="rateio-item">
+          <div class="rateio-icon">🎬</div>
+          <div class="rateio-title">Edição de Vídeo & VSL</div>
+          <div class="rateio-desc">Templates, presets e projetos prontos para editar</div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="como-funciona" class="animate-on-scroll">
+      <h2 class="section-title">Como funciona o acesso?</h2>
+      <p class="section-sub">Em menos de 5 minutos você já pode estar por dentro.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Você entra para a Mattilha</h3>
+          <p>Após a inscrição, o acesso é liberado e enviado para o seu e-mail.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Recebe as instruções por e-mail</h3>
+          <p>Um guia rápido explica como acessar, navegar e aproveitar o conteúdo.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Começa com uma trilha recomendada</h3>
+          <p>Escolha uma trilha e siga os passos no seu ritmo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="o-que-recebe" class="animate-on-scroll">
+      <h2 class="section-title">Tudo que está incluso</h2>
+      <p class="section-sub">O que você leva quando entra na Mattilha.</p>
+      <div class="lista">
+        <ul>
+          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></span> Trilhas e guias práticos (do básico ao avançado)</li>
+          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></span> Templates, prompts, scripts e copys prontos</li>
+          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></span> Planilhas, checklists e materiais de apoio</li>
+          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></span> Drops/atualizações frequentes dentro do servidor</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="bonus" class="animate-on-scroll">
+      <h2 class="section-title">Bônus exclusivos para membros</h2>
+      <p class="section-sub">Extras para você começar com o pé direito.</p>
+      <div class="grid">
+        <div class="bonus-card">
+          <div class="bonus-tag">#BÔNUS 1</div>
+          <h3>Plano de 7 dias</h3>
+          <p class="bonus-desc">Um roteiro simples pra você engrenar.</p>
+          <p class="bonus-de">De R$ 47,00</p>
+          <p class="bonus-gratis">NESSA OFERTA: GRÁTIS</p>
+        </div>
+        <div class="bonus-card">
+          <div class="bonus-tag">#BÔNUS 2</div>
+          <h3>Checklist de foco</h3>
+          <p class="bonus-desc">Pra manter consistência sem travar.</p>
+          <p class="bonus-de">De R$ 37,00</p>
+          <p class="bonus-gratis">NESSA OFERTA: GRÁTIS</p>
+        </div>
+        <div class="bonus-card">
+          <div class="bonus-tag">#BÔNUS 3</div>
+          <h3>Templates prontos</h3>
+          <p class="bonus-desc">Modelos editáveis para acelerar.</p>
+          <p class="bonus-de">De R$ 67,00</p>
+          <p class="bonus-gratis">NESSA OFERTA: GRÁTIS</p>
+        </div>
+        <div class="bonus-card">
+          <div class="bonus-tag">#BÔNUS 4</div>
+          <h3>Trilha "começo do zero"</h3>
+          <p class="bonus-desc">Pra quem quer direção clara.</p>
+          <p class="bonus-de">De R$ 57,00</p>
+          <p class="bonus-gratis">NESSA OFERTA: GRÁTIS</p>
+        </div>
+        <div class="bonus-card">
+          <div class="bonus-tag">#BÔNUS 5</div>
+          <h3>Desafio semanal</h3>
+          <p class="bonus-desc">Pra sair do consumo e ir pra prática.</p>
+          <p class="bonus-de">De R$ 27,00</p>
+          <p class="bonus-gratis">NESSA OFERTA: GRÁTIS</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="depoimentos" class="animate-on-scroll">
+      <h2 class="section-title">O que quem já entrou tá falando da Mattilha</h2>
+      <p class="section-sub">Experiências reais de quem já está por dentro.</p>
+      <div class="grid">
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <div class="depo-header">
+            <div class="depo-avatar" style="background:#7c3aed;color:#fff">MS</div>
+            <div class="depo-info">
+              <div class="author">Maria S.</div>
+              <div class="depo-time">há 2 semanas</div>
+            </div>
+          </div>
+          <p>A organização foi o que mais me ajudou. Antes eu ficava perdida; agora sei por onde começar cada dia.</p>
+        </div>
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <div class="depo-header">
+            <div class="depo-avatar" style="background:#0284c7;color:#fff">RF</div>
+            <div class="depo-info">
+              <div class="author">Ricardo F.</div>
+              <div class="depo-time">há 1 mês</div>
+            </div>
+          </div>
+          <p>Eu finalmente consegui manter constância. As trilhas me guiam e não preciso decidir sozinho o que estudar.
+          </p>
+        </div>
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <div class="depo-header">
+            <div class="depo-avatar" style="background:#d97706;color:#fff">AP</div>
+            <div class="depo-info">
+              <div class="author">Ana Paula M.</div>
+              <div class="depo-time">há 3 semanas</div>
+            </div>
+          </div>
+          <p>O suporte respondeu minhas dúvidas e o guia de começo rápido fez toda a diferença na primeira semana.</p>
+        </div>
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <div class="depo-header">
+            <div class="depo-avatar" style="background:#16a34a;color:#fff">BL</div>
+            <div class="depo-info">
+              <div class="author">Bruno L.</div>
+              <div class="depo-time">há 2 meses</div>
+            </div>
+          </div>
+          <p>Conteúdo direto ao ponto. Sem enrolação. Isso que eu precisava pra encaixar na rotina.</p>
+        </div>
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <div class="depo-header">
+            <div class="depo-avatar" style="background:#e50914;color:#fff">CR</div>
+            <div class="depo-info">
+              <div class="author">Carla R.</div>
+              <div class="depo-time">há 1 semana</div>
+            </div>
+          </div>
+          <p>Os bônus de templates e o plano de 7 dias me fizeram engrenar logo no início. Recomendo.</p>
+        </div>
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <div class="depo-header">
+            <div class="depo-avatar" style="background:#0891b2;color:#fff">PT</div>
+            <div class="depo-info">
+              <div class="author">Pedro T.</div>
+              <div class="depo-time">há 5 dias</div>
+            </div>
+          </div>
+          <p>Uso no celular e no notebook. Acesso em qualquer lugar e consigo seguir as trilhas sem atraso.</p>
+        </div>
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <div class="depo-header">
+            <div class="depo-avatar" style="background:#9333ea;color:#fff">JK</div>
+            <div class="depo-info">
+              <div class="author">Juliana K.</div>
+              <div class="depo-time">há 3 dias</div>
+            </div>
+          </div>
+          <p>Antes eu consumia curso atrás de curso. Aqui tenho um caminho claro e atualizações que fazem sentido.</p>
+        </div>
+        <div class="depo-card">
+          <div class="depo-stars">★★★★★</div>
+          <div class="depo-header">
+            <div class="depo-avatar" style="background:#b45309;color:#fff">FG</div>
+            <div class="depo-info">
+              <div class="author">Fernando G.</div>
+              <div class="depo-time">há 1 mês</div>
+            </div>
+          </div>
+          <p>Preço justo e garantia de 7 dias. Entrei sem medo e não me arrependi. Já indiquei para amigos.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="garantia" class="animate-on-scroll">
+      <h2 class="visually-hidden">Garantia</h2>
+      <div class="garantia-box">
+        <svg class="garantia-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        </svg>
+        <div>
+          <h2>Não gostou? A gente devolve seu dinheiro.</h2>
+          <p>Você tem 7 dias pra testar. Se não curtir, é só pedir e devolvemos 100%. Sem perguntas. Sem estresse.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="antes-depois" class="animate-on-scroll">
+      <h2 class="section-title">Antes e depois</h2>
+      <p class="section-sub">O que muda quando você tem um caminho claro.</p>
+      <div class="cols">
+        <div class="antes-depois-card antes-card">
+          <h3>🛑 Antes da Mattilha</h3>
+          <ul>
+            <li>Conteúdos espalhados e sem ordem</li>
+            <li>Dúvida sobre por onde começar</li>
+            <li>Falta de consistência nos estudos</li>
+            <li>Pouco tempo para organizar o que estudar</li>
+          </ul>
+        </div>
+        <div class="antes-depois-card depois-card">
+          <h3>✨ Depois da Mattilha</h3>
+          <ul>
+            <li>Trilhas organizadas do básico ao avançado</li>
+            <li>Um guia e uma trilha recomendada pra começar</li>
+            <li>Rotina simples: dia 1, 7 e 30 definidos</li>
+            <li>Tudo em um só lugar, com atualizações constantes</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="oferta" class="animate-on-scroll">
+      <div class="oferta-box">
+        <div class="urgency-tag"><span class="urgency-dot"></span> OFERTA COM PRAZO LIMITADO</div>
+        <h2>Tudo o que você precisa pra evoluir — sem gastar uma fortuna.</h2>
+        <p class="section-sub" style="margin-bottom:1rem">Conteúdos organizados, trilhas práticas, bônus exclusivos e
+          acesso à comunidade. Sem enrolação.</p>
+        <!-- Countdown -->
+        <div class="countdown-wrap">
+          <div class="countdown-unit"><span class="countdown-num" id="cd-h">00</span><span
+              class="countdown-label">Horas</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="cd-m">00</span><span
+              class="countdown-label">Min</span></div>
+          <div class="countdown-unit"><span class="countdown-num" id="cd-s">00</span><span
+              class="countdown-label">Seg</span></div>
+        </div>
+        <ul class="oferta-list">
+          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></span> Trilhas e guias práticos (do básico ao avançado)</li>
+          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></span> Templates, prompts, scripts e copys prontos</li>
+          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></span> Planilhas, checklists e materiais de apoio</li>
+          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></span> Drops/atualizações frequentes dentro do servidor</li>
+          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <path d="M20 6L9 17l-5-5" />
+              </svg></span> Garantia de 7 dias</li>
+        </ul>
+        <!-- Vagas progress -->
+        <div class="vagas-bar-wrap">
+          <div class="vagas-bar-label"><span>Vagas preenchidas</span><strong>72% ocupadas</strong></div>
+          <div class="vagas-bar-bg">
+            <div class="vagas-bar-fill"></div>
+          </div>
+        </div>
+        <p class="oferta-quanto">Quanto custa ter acesso?</p>
+        <p class="oferta-preco-label">POR APENAS 12X DE</p>
+        <p class="preco-parcela preco-destaque">R$ 8,17</p>
+        <p class="preco-avista">OU R$ 97,99 À VISTA</p>
+        <a href="https://pay.kiwify.com.br/BbE7lTK" target="_blank" rel="noopener"
+          class="btn btn-primary btn-pulse">Garantir minha vaga agora →</a>
+        <p class="microcopy">Acesso imediato • Pagamento seguro • Suporte por e-mail</p>
+        <div class="selos">
+          <span class="selo"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg> Compra Segura</span>
+          <span class="selo"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <rect x="3" y="11" width="18" height="11" rx="2" />
+              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+            </svg> SSL Criptografado</span>
+          <span class="selo"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M20 6L9 17l-5-5" />
+            </svg> Kiwify</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="animate-on-scroll">
+      <h2 class="section-title">FAQ — PERGUNTAS ESSENCIAIS</h2>
+      <p class="section-sub">Respostas rápidas pras dúvidas mais comuns.</p>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Como recebo o acesso?</summary>
+          <p>Após a confirmação do pagamento, você recebe um e-mail com o link de acesso e um guia de começo rápido. O
+            acesso é liberado na hora.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Funciona no celular?</summary>
+          <p>Sim. A página e as trilhas podem ser acessadas pelo celular ou tablet. Basta ter conexão com a internet.
+          </p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Tem mensalidade?</summary>
+          <p>O valor é único (ou parcelado no cartão, conforme a oferta). Consulte a seção Oferta para ver as condições
+            atuais.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Posso cancelar?</summary>
+          <p>Se for assinatura, você pode cancelar a qualquer momento. O acesso permanece até o fim do período já pago.
+            Em planos únicos, não há cobrança recorrente.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Como funciona a garantia?</summary>
+          <p>Você tem 7 dias para testar. Se não fizer sentido pra você, é só pedir o reembolso por e-mail dentro do
+            prazo. Devolvemos 100% do valor.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> O que exatamente está incluso?</summary>
+          <p>Trilhas e guias práticos (do básico ao avançado), templates e copys prontos, planilhas e checklists, drops
+            e atualizações frequentes no servidor, além da garantia de 7 dias e suporte por e-mail.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Preciso ter experiência?</summary>
+          <p>Não. As trilhas atendem do básico ao avançado. Tem trilha "começo do zero" e guia de começo rápido pra quem
+            está começando.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Quanto tempo por dia?</summary>
+          <p>Depende da trilha e do seu ritmo. Você define. Muitas pessoas dedicam de 15 a 30 minutos por dia; outras
+            fazem blocos maiores quando podem.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Como são as atualizações?</summary>
+          <p>Novos conteúdos e melhorias nas trilhas são adicionados ao longo do tempo. Você tem acesso a tudo sem custo
+            extra (conforme o plano).</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Como falar com o suporte?</summary>
+          <p>Por e-mail. O endereço é enviado no guia de acesso. Respondemos em até 48 horas úteis.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <span id="footer-termos" class="visually-hidden" aria-hidden="true"></span>
+    <span id="footer-privacidade" class="visually-hidden" aria-hidden="true"></span>
+    <span id="footer-contato" class="visually-hidden" aria-hidden="true"></span>
+    <div class="footer-links">
+      <a href="#footer-termos">Termos de Uso</a>
+      <a href="#footer-privacidade">Política de Privacidade</a>
+      <a href="#footer-contato">Contato</a>
+    </div>
+    <p class="footer-legal">© Mattilha. Todos os direitos reservados.</p>
+    <p class="footer-disclaimer">Conteúdos e trilhas podem ser atualizados ao longo do tempo. Os resultados podem variar
+      de pessoa para pessoa. Os dados fornecidos são utilizados exclusivamente para comunicação e nunca divulgados a
+      terceiros. Os depoimentos são reais e não representam resultados únicos — cada pessoa é diferente.</p>
+  </footer>
+
+  <!-- Sticky mobile CTA -->
+  <div class="sticky-cta" id="sticky-cta">
+    <a href="https://pay.kiwify.com.br/BbE7lTK" target="_blank" rel="noopener">
+      🚀 Garantir minha vaga — R$ 8,17/mês
+    </a>
+  </div>
+
+  <script>
+    // Scroll animations
+    (function () {
+      var sections = document.querySelectorAll('.animate-on-scroll');
+      function check() {
+        sections.forEach(function (el) {
+          var rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 80) el.classList.add('visible');
+        });
+      }
+      window.addEventListener('scroll', check, { passive: true });
+      window.addEventListener('load', check);
+      check();
+    })();
+
+    // Hamburger menu
+    (function () {
+      var btn = document.getElementById('hamburger');
+      var overlay = document.getElementById('mobile-overlay');
+      if (!btn || !overlay) return;
+      function close() {
+        btn.classList.remove('open');
+        overlay.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+      btn.addEventListener('click', function () {
+        var isOpen = overlay.classList.contains('open');
+        if (isOpen) { close(); }
+        else {
+          btn.classList.add('open');
+          overlay.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+      overlay.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', close); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    })();
+
+    // Countdown timer (resets every 24h per session)
+    (function () {
+      var KEY = 'mattilha_cd_end';
+      var stored = localStorage.getItem(KEY);
+      var end;
+      var now = Date.now();
+      if (stored && parseInt(stored) > now) {
+        end = parseInt(stored);
+      } else {
+        // Random between 3h and 11h to feel dynamic
+        var hours = 3 + Math.floor(Math.random() * 9);
+        end = now + hours * 3600 * 1000;
+        localStorage.setItem(KEY, end);
+      }
+      var h = document.getElementById('cd-h');
+      var m = document.getElementById('cd-m');
+      var s = document.getElementById('cd-s');
+      if (!h || !m || !s) return;
+      function pad(n) { return n < 10 ? '0' + n : '' + n; }
+      function tick() {
+        var diff = Math.max(0, end - Date.now());
+        var totalSec = Math.floor(diff / 1000);
+        var hv = Math.floor(totalSec / 3600);
+        var mv = Math.floor((totalSec % 3600) / 60);
+        var sv = totalSec % 60;
+        h.textContent = pad(hv);
+        m.textContent = pad(mv);
+        s.textContent = pad(sv);
+        if (diff <= 0) { localStorage.removeItem(KEY); }
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // Hide sticky CTA when #oferta is visible
+    (function () {
+      var cta = document.getElementById('sticky-cta');
+      var oferta = document.getElementById('oferta');
+      if (!cta || !oferta) return;
+      function update() {
+        var r = oferta.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          cta.style.display = 'none';
+        } else {
+          cta.style.display = '';
+        }
+      }
+      window.addEventListener('scroll', update, { passive: true });
+      update();
+    })();
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Mattilha — Seu ponto de virada para evoluir mais rápido",
+    "description": "Conteúdos organizados, trilhas práticas e uma comunidade com foco em resultado. Acesso imediato, organização por trilhas e atualizações constantes.",
+    "inLanguage": "pt-BR",
+    "publisher": { "@type": "Organization", "name": "Mattilha" }
+  }
+  </script>
+</body>
+
+</html>
