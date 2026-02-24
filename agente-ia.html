@@ -477,44 +477,11 @@
 
     <section class="reviews">
       <h2 class="section-title">Avaliações de quem já está usando o Agente IA</h2>
-      <div class="review-list">
-        <article class="review-card">
-          <div class="review-head">
-            <div class="review-name">Marcos — Gestor de Tráfego</div>
-            <div class="stars">★★★★★</div>
-          </div>
-          <div class="review-tagline">“Parou de travar na hora de criar campanha”</div>
-          <p>
-            Eu perdia muito tempo criando prompts e variações de anúncios. Com o arsenal pronto, eu só ajusto pro
-            cliente e lanço. Ganhou fácil algumas horas por semana.
-          </p>
-        </article>
-        <article class="review-card">
-          <div class="review-head">
-            <div class="review-name">Luiza — Social Media</div>
-            <div class="stars">★★★★★</div>
-          </div>
-          <div class="review-tagline">“Virou meu ponto de partida diário”</div>
-          <p>
-            Uso os agentes pra montar pauta, roteiros curtos e legendas. Já começo o dia com ideias estruturadas em vez
-            de tela em branco.
-          </p>
-        </article>
-        <article class="review-card">
-          <div class="review-head">
-            <div class="review-name">Pedro — Dev no-code</div>
-            <div class="stars">★★★★★</div>
-          </div>
-          <div class="review-tagline">“Menos tempo configurando, mais tempo entregando”</div>
-          <p>
-            Os agentes de estrutura são muito bons pra criar fluxos e automações. Em vez de ficar pensando no prompt
-            perfeito, eu só adapto o que já está pronto.
-          </p>
-        </article>
+      <div id="user-reviews">
+        <div style="text-align:center;padding:2rem;color:var(--text-muted);">Carregando avaliações...</div>
       </div>
-
-      <!-- Avaliações dos usuários (adicionadas dinamicamente) -->
-      <div class="user-reviews" id="user-reviews"></div>
+        
+        
     </section>
 
     <!-- Formulário de Avaliação -->
@@ -599,21 +566,13 @@
         return;
       }
 
-      let html = '<h3 class="section-title" style="margin-top: 2rem;">Avaliações da comunidade</h3><div class="review-list">';
+      let html = '<div class="review-list">';
       
       reviews.forEach(review => {
         const stars = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
         const dateText = review.date ? formatDate(review.date) : '';
         html += `
-          <article class="review-card">
-            <div class="review-head">
-              <div class="review-name">${escapeHtml(review.name)}</div>
-              <div class="stars">${stars}</div>
-            </div>
-            ${review.tagline ? `<div class="review-tagline">"${escapeHtml(review.tagline)}"</div>` : ''}
-            <p>${escapeHtml(review.text)}</p>
-            ${dateText ? `<div style="font-size:0.75rem;color:var(--text-muted);margin-top:0.5rem;">${dateText}</div>` : ''}
-          </article>
+          
         `;
       });
       
