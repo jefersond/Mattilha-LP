@@ -564,9 +564,10 @@
 
     function renderReviews(reviews) {
       const container = document.getElementById('user-reviews');
+      if (!container) return;
       
       if (!reviews || reviews.length === 0) {
-        container.innerHTML = '';
+        container.innerHTML = '<div style="text-align:center;padding:2rem;color:var(--text-muted);">Nenhuma avaliação ainda. Seja o primeiro a avaliar!</div>';
         return;
       }
 
@@ -605,17 +606,13 @@
           }
         }
         
-        const response = await fetch(JSONBIN_PUBLIC_URL + '?t=' + Date.now(), {
-          headers: {
-            'X-Master-Key': JSONBIN_API_KEY !== 'YOUR_API_KEY' ? JSONBIN_API_KEY : undefined
-          }
-        });
+        const response = await fetch(JSONBIN_PUBLIC_URL + '?t=' + Date.now());
         
         if (!response.ok) throw new Error('Erro ao carregar avaliações');
         
         const result = await response.json();
         const reviews = result.record?.reviews || result.reviews || [];
-        renderReviews(reviews);
+        renderReviews(Array.isArray(reviews) ? reviews : []);
       } catch (error) {
         console.error('Erro ao carregar avaliações:', error);
         // Em caso de erro, tenta carregar do localStorage como fallback
@@ -651,9 +648,7 @@
         if (JSONBIN_BIN_ID !== 'YOUR_BIN_ID' && JSONBIN_API_KEY !== 'YOUR_API_KEY') {
           // Buscar avaliações atuais
           const currentResponse = await fetch(JSONBIN_PUBLIC_URL, {
-            headers: {
-              'X-Master-Key': JSONBIN_API_KEY
-            }
+            headers: { 'X-Access-Key': JSONBIN_API_KEY }
           });
           
           let currentData = { reviews: [] };
@@ -671,7 +666,7 @@
             method: 'PUT',
             headers: {
               'Content-Type': 'application/json',
-              'X-Master-Key': JSONBIN_API_KEY
+              'X-Access-Key': JSONBIN_API_KEY
             },
             body: JSON.stringify(currentData)
           });
