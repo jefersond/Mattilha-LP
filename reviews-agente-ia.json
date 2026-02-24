@@ -1,0 +1,25 @@
+{
+  "reviews": [
+    {
+      "name": "Marcos — Gestor de Tráfego",
+      "rating": 5,
+      "tagline": "Parou de travar na hora de criar campanha",
+      "text": "Eu perdia muito tempo criando prompts e variações de anúncios. Com o arsenal pronto, eu só ajusto pro cliente e lanço. Ganhou fácil algumas horas por semana.",
+      "date": "2024-01-15T10:00:00Z"
+    },
+    {
+      "name": "Luiza — Social Media",
+      "rating": 5,
+      "tagline": "Virou meu ponto de partida diário",
+      "text": "Uso os agentes pra montar pauta, roteiros curtos e legendas. Já começo o dia com ideias estruturadas em vez de tela em branco.",
+      "date": "2024-01-20T14:30:00Z"
+    },
+    {
+      "name": "Pedro — Dev no-code",
+      "rating": 5,
+      "tagline": "Menos tempo configurando, mais tempo entregando",
+      "text": "Os agentes de estrutura são muito bons pra criar fluxos e automações. Em vez de ficar pensando no prompt perfeito, eu só adapto o que já está pronto.",
+      "date": "2024-01-25T09:15:00Z"
+    }
+  ]
+}
