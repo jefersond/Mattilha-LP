@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Agente IA — Arsenal para transformar ideia em entrega</title>
+  <title>Checklist Milionário — Kit de checklists para seu funil</title>
   <link rel="icon" type="image/png" href="logo.png">
   <meta name="description"
-    content="Agente IA: conjunto de bots prontos para criar prompts, estruturar funis, montar regras para Cursor e acelerar sua operação.">
+    content="Checklist Milionário: checklists prontos para anúncio, copy, segmentação e pós-checkout. Saia do eu acho que tá bom e vá para o modo certeza.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
@@ -432,28 +432,25 @@
         <div class="pill">
           <span>●</span> Produto digital • Acesso imediato
         </div>
-        <h1>Agente IA — o arsenal que transforma ideia em entrega</h1>
+        <h1>Checklist Milionário — do "eu acho que tá bom" pro modo certeza</h1>
         <p class="subtitle">
-          Um conjunto de agentes prontos para fazer o trabalho chato por você: criar prompts, estruturar funis, montar
-          regras para o Cursor, padronizar abordagens e acelerar sua produção.
+          Kit de checklists prontos para revisar e melhorar as partes mais importantes do seu funil: do anúncio ao pós-checkout. Sem depender de inspiração e sem esquecer detalhe que custa caro.
         </p>
         <ul class="bullets">
-          <li><span>✓</span><div>Boots organizados por objetivo: vendas, criação, dev, estética e mais.</div></li>
-          <li><span>✓</span><div>Templates e presets prontos para copiar, colar e adaptar à sua operação.</div></li>
-          <li><span>✓</span><div>Atualizações e novas versões sempre que o arsenal evoluir.</div></li>
-          <li><span>✓</span><div>Pensado para gestores de tráfego, social media, copy, designer, editor e dev no-code.
-            </div></li>
+          <li><span>✓</span><div>Checklist de Anúncios: criativo, copy, segmentação e otimização.</div></li>
+          <li><span>✓</span><div>Pacote completo em PDF, pronto para usar (check, check, check).</div></li>
+          <li><span>✓</span><div>Acesso imediato após a confirmação do pagamento.</div></li>
+          <li><span>✓</span><div>Pra quem quer padronizar, ganhar velocidade e parar de perder ponto por detalhe.</div></li>
         </ul>
         <div class="stack">
           <div class="stack-block">
             <strong style="color:#fff;">Pra quem é:</strong><br>
             Quem quer sair do “vou fazer” para o “tá pronto”, produzindo mais rápido e com qualidade consistente usando
-            IA de forma prática.
+            Quem quer executar como time grande mesmo sendo só você no Trello. Gestores de tráfego, criativos e donos de operação que não querem refazer do zero.
           </div>
           <div class="stack-block">
             <strong style="color:#fff;">O que você recebe:</strong><br>
-            Acesso ao arsenal de agentes, documentação de uso e exemplos de prompts para você já começar extraindo
-            resultado em minutos.
+            Um pacote completo de checklists em PDF para anúncios (criativo, copy, segmentação e otimização). Material pronto para usar no dia a dia.
           </div>
         </div>
       </section>
@@ -462,12 +459,12 @@
         <div class="price-box">
           <div class="price-label">Oferta atual</div>
           <p class="price">
-            R$ 19,90
+            R$ 9,90
             <small>pagamento único</small>
           </p>
         </div>
-        <a class="btn-primary" href="https://pay.kiwify.com.br/aVO7SX2" target="_blank" rel="noopener">
-          Entrar na oferta agora →
+        <a class="btn-primary" href="https://pay.kiwify.com.br/xyVX3up" target="_blank" rel="noopener">
+          Comprar agora →
         </a>
         <p class="secure">
           Pagamento processado pela <span>Kiwify</span>. Acesso enviado por e-mail logo após a aprovação.
@@ -517,7 +514,7 @@
 
           <div class="form-group">
             <label for="review-text">Sua avaliação</label>
-            <textarea id="review-text" name="text" placeholder="Conte sua experiência com o Agente IA..." required></textarea>
+            <textarea id="review-text" name="text" placeholder="Conte sua experiência com o Checklist Milionário..." required></textarea>
           </div>
 
           <button type="submit" class="btn-submit">Enviar avaliação</button>
@@ -541,7 +538,7 @@
     const JSONBIN_API_KEY = '$2a$10$8RsFy7tLkLf886wL0KMLL.6wj0uewXVwGC690MU7ff2Wa1K580Mja';
     const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
     const JSONBIN_PUBLIC_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`;
-    const PRODUCT_ID = 'agente-ia'; // ID único deste produto (para filtrar avaliações)
+    const PRODUCT_ID = 'checklist-milionario'; // ID único deste produto (para filtrar avaliações)
 
     function escapeHtml(text) {
       const div = document.createElement('div');
@@ -614,7 +611,7 @@
         const result = await response.json();
         const allReviews = result.record?.reviews || result.reviews || [];
         const reviews = Array.isArray(allReviews)
-          ? allReviews.filter(r => (r.productId || 'agente-ia') === PRODUCT_ID)
+          ? allReviews.filter(r => r.productId === PRODUCT_ID)
           : [];
         renderReviews(reviews);
       } catch (error) {

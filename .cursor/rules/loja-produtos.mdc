@@ -1,0 +1,27 @@
+---
+description: Regra para adicionar novos produtos na Loja Mattilha — cada produto tem página própria com avaliações.
+globs: ["loja.html", "**/loja.html", "*-*.html"]
+---
+
+# Loja Mattilha — Novos produtos
+
+Sempre que for **adicionar um novo produto** na loja deste projeto:
+
+1. **Criar uma página dedicada** para o produto:
+   - Arquivo: `[slug-do-produto].html` (ex: `agente-ia.html`, `checklist-milionario.html`).
+   - Usar como base `agente-ia.html` ou `checklist-milionario.html`: mesma estrutura (header, layout, card descrição, aside preço/CTA, seção de avaliações, formulário de avaliação).
+   - Definir no script: `const PRODUCT_ID = 'slug-do-produto';` (mesmo slug do arquivo, sem `.html`).
+   - Ajustar: título, meta description, h1, subtítulo, bullets, blocos "Pra quem é" / "O que você recebe", preço, link do checkout e texto do CTA.
+   - Manter as mesmas constantes JSONBin (JSONBIN_BIN_ID, JSONBIN_API_KEY) e a lógica de avaliações (cada avaliação salva com `productId`; ao carregar, filtrar por `PRODUCT_ID`).
+
+2. **Na loja (`loja.html`)**:
+   - Adicionar um card de produto no grid `.store-grid`.
+   - O **título do produto** deve ser um link para a página do produto: `<a href="[slug].html" style="text-decoration:none;color:inherit;">Nome do Produto</a>`.
+   - Incluir imagem (ex: `banner.png` ou imagem do produto), descrição curta, preço e botão/link para o checkout (Kiwify ou outro).
+
+3. **Avaliações**:
+   - Todas as páginas de produto usam o **mesmo** JSONBin; cada avaliação tem campo `productId`.
+   - Na página, ao carregar avaliações: filtrar `reviews` por `productId === PRODUCT_ID`.
+   - Ao enviar: incluir `productId: PRODUCT_ID` no objeto da avaliação.
+
+Resumo: **cada produto na loja = uma página HTML própria (entrar e ver tudo) + avaliações por produto**, usando um único JSONBin e `productId` para separar.
