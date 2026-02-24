@@ -530,10 +530,17 @@
   </div>
 
   <script>
-    // URL do arquivo JSON público (ajuste para sua URL do GitHub ou Vercel)
-    const REVIEWS_URL = 'https://raw.githubusercontent.com/jefersond/Mattilha-LP/main/reviews-agente-ia.json';
-    // URL do Formspree (você precisa criar em https://formspree.io e colocar seu endpoint aqui)
-    const FORMSPREE_URL = 'https://formspree.io/f/YOUR_FORM_ID'; // SUBSTITUA pelo seu endpoint do Formspree
+    // JSONBin.io - Sistema automático de avaliações
+    // IMPORTANTE: Você precisa criar um bin em https://jsonbin.io e colocar o ID aqui
+    // 1. Acesse https://jsonbin.io e crie uma conta gratuita
+    // 2. Crie um novo bin com este conteúdo inicial: {"reviews":[]}
+    // 3. Copie o Bin ID e cole abaixo
+    // 4. Vá em Settings do bin e marque como "Public" (público)
+    // 5. Vá em API Keys e crie uma chave, depois cole abaixo
+    const JSONBIN_BIN_ID = 'YOUR_BIN_ID'; // SUBSTITUA pelo ID do seu bin
+    const JSONBIN_API_KEY = 'YOUR_API_KEY'; // SUBSTITUA pela sua API key
+    const JSONBIN_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}`;
+    const JSONBIN_PUBLIC_URL = `https://api.jsonbin.io/v3/b/${JSONBIN_BIN_ID}/latest`; // URL pública para ler
 
     function escapeHtml(text) {
       const div = document.createElement('div');
@@ -585,20 +592,38 @@
       container.innerHTML = html;
     }
 
-    // Carregar avaliações públicas do arquivo JSON
+    // Carregar avaliações públicas do JSONBin.io
     async function loadPublicReviews() {
       try {
-        const response = await fetch(REVIEWS_URL + '?t=' + Date.now()); // Cache bust
+        // Se não configurou JSONBin, usa fallback do GitHub
+        if (JSONBIN_BIN_ID === 'YOUR_BIN_ID') {
+          const response = await fetch('https://raw.githubusercontent.com/jefersond/Mattilha-LP/main/reviews-agente-ia.json?t=' + Date.now());
+          if (response.ok) {
+            const data = await response.json();
+            renderReviews(data.reviews || []);
+            return;
+          }
+        }
+        
+        const response = await fetch(JSONBIN_PUBLIC_URL + '?t=' + Date.now(), {
+          headers: {
+            'X-Master-Key': JSONBIN_API_KEY !== 'YOUR_API_KEY' ? JSONBIN_API_KEY : undefined
+          }
+        });
+        
         if (!response.ok) throw new Error('Erro ao carregar avaliações');
         
-        const data = await response.json();
-        renderReviews(data.reviews || []);
+        const result = await response.json();
+        const reviews = result.record?.reviews || result.reviews || [];
+        renderReviews(reviews);
       } catch (error) {
         console.error('Erro ao carregar avaliações:', error);
         // Em caso de erro, tenta carregar do localStorage como fallback
         const localReviews = JSON.parse(localStorage.getItem('agente-ia-reviews') || '[]');
         if (localReviews.length > 0) {
           renderReviews(localReviews);
+        } else {
+          document.getElementById('user-reviews').innerHTML = '<div style="text-align:center;padding:2rem;color:var(--text-muted);">Nenhuma avaliação ainda. Seja o primeiro a avaliar!</div>';
         }
       }
     }
@@ -622,31 +647,64 @@
       };
 
       try {
-        // Enviar para Formspree (você receberá um email com a avaliação)
-        const formspreeData = new FormData();
-        formspreeData.append('name', review.name);
-        formspreeData.append('rating', review.rating);
-        formspreeData.append('tagline', review.tagline);
-        formspreeData.append('text', review.text);
-        formspreeData.append('date', review.date);
-        formspreeData.append('_subject', 'Nova avaliação - Agente IA');
-        formspreeData.append('_format', 'plain');
-
-        // Se você configurou Formspree, descomente a linha abaixo e adicione seu endpoint
-        // await fetch(FORMSPREE_URL, { method: 'POST', body: formspreeData });
-
-        // Mostrar mensagem de sucesso
-        document.getElementById('success-message').innerHTML = 
-          '✓ Avaliação enviada com sucesso! Obrigado pelo seu feedback.';
-        document.getElementById('success-message').classList.add('show');
-        
-        // Limpar formulário
-        e.target.reset();
-        
-        // Recarregar avaliações após um delay
-        setTimeout(() => {
-          loadPublicReviews();
-        }, 1000);
+        // Adicionar automaticamente ao JSONBin.io
+        if (JSONBIN_BIN_ID !== 'YOUR_BIN_ID' && JSONBIN_API_KEY !== 'YOUR_API_KEY') {
+          // Buscar avaliações atuais
+          const currentResponse = await fetch(JSONBIN_PUBLIC_URL, {
+            headers: {
+              'X-Master-Key': JSONBIN_API_KEY
+            }
+          });
+          
+          let currentData = { reviews: [] };
+          if (currentResponse.ok) {
+            const result = await currentResponse.json();
+            currentData = result.record || { reviews: [] };
+          }
+          
+          // Adicionar nova avaliação no início
+          currentData.reviews = currentData.reviews || [];
+          currentData.reviews.unshift(review);
+          
+          // Salvar de volta no JSONBin
+          const updateResponse = await fetch(JSONBIN_URL, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-Master-Key': JSONBIN_API_KEY
+            },
+            body: JSON.stringify(currentData)
+          });
+          
+          if (!updateResponse.ok) {
+            throw new Error('Erro ao salvar avaliação');
+          }
+          
+          // Mostrar mensagem de sucesso
+          document.getElementById('success-message').innerHTML = 
+            '✓ Avaliação publicada com sucesso! Obrigado pelo seu feedback.';
+          document.getElementById('success-message').classList.add('show');
+          
+          // Limpar formulário
+          e.target.reset();
+          
+          // Recarregar avaliações imediatamente
+          setTimeout(() => {
+            loadPublicReviews();
+          }, 500);
+        } else {
+          // Fallback: salvar localmente e mostrar mensagem
+          const localReviews = JSON.parse(localStorage.getItem('agente-ia-reviews') || '[]');
+          localReviews.unshift(review);
+          localStorage.setItem('agente-ia-reviews', JSON.stringify(localReviews));
+          
+          document.getElementById('success-message').innerHTML = 
+            '✓ Avaliação salva! Configure JSONBin.io para publicação automática (veja instruções no código).';
+          document.getElementById('success-message').classList.add('show');
+          
+          e.target.reset();
+          renderReviews(localReviews);
+        }
 
         // Scroll suave até as avaliações
         setTimeout(() => {
