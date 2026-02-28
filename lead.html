@@ -770,10 +770,16 @@
     }
 
     /* Bônus */
+    #bonus {
+      text-align: center;
+    }
     #bonus .grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .bonus-card {
@@ -827,15 +833,10 @@
       letter-spacing: 0.02em;
     }
 
-    @media (max-width: 900px) {
-      #bonus .grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 480px) {
+    @media (max-width: 768px) {
       #bonus .grid {
         grid-template-columns: 1fr;
+        max-width: 100%;
       }
     }
 
@@ -1910,16 +1911,6 @@
       </div>
       <!-- Conteúdo textual (começa exatamente onde o banner termina) -->
       <section class="hero">
-        <div class="members-count-wrap">
-          <div class="avatars">
-            <div class="mini-avatar" style="background:#e50914;color:#fff">M</div>
-            <div class="mini-avatar" style="background:#7c3aed;color:#fff">R</div>
-            <div class="mini-avatar" style="background:#0284c7;color:#fff">A</div>
-            <div class="mini-avatar" style="background:#d97706;color:#fff">J</div>
-          </div>
-          <span class="live-dot"></span>
-          <span><strong style="color:var(--text)">+500 membros</strong> já estão evoluindo</span>
-        </div>
         <p class="hero-tagline">REDE + COMUNIDADE + NETWORKING</p>
         <h1>Entre no grupo da Mattilha e <span style="color:var(--primary)">faça parte da comunidade.</span></h1>
         <p class="sub">Networking, troca de ideias e um lugar pra entender como a comunidade funciona — cadastro gratuito e link na hora.</p>
@@ -2053,7 +2044,7 @@
           <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2">
                 <path d="M20 6L9 17l-5-5" />
-              </svg></span> Link do grupo (WhatsApp, Telegram ou outro canal da comunidade)</li>
+              </svg></span> Link do grupo no WhatsApp</li>
           <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2">
                 <path d="M20 6L9 17l-5-5" />
@@ -2094,103 +2085,6 @@
         </div>
       </div>
     </section>
-
-    <section id="depoimentos" class="animate-on-scroll">
-      <h2 class="section-title">O que quem já entrou tá falando da Mattilha</h2>
-      <p class="section-sub">Experiências reais de quem já está por dentro.</p>
-      <div class="grid">
-        <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <div class="depo-header">
-            <div class="depo-avatar" style="background:#7c3aed;color:#fff">MS</div>
-            <div class="depo-info">
-              <div class="author">Maria S.</div>
-              <div class="depo-time">há 2 semanas</div>
-            </div>
-          </div>
-          <p>A organização foi o que mais me ajudou. Antes eu ficava perdida; agora sei por onde começar cada dia.</p>
-        </div>
-        <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <div class="depo-header">
-            <div class="depo-avatar" style="background:#0284c7;color:#fff">RF</div>
-            <div class="depo-info">
-              <div class="author">Ricardo F.</div>
-              <div class="depo-time">há 1 mês</div>
-            </div>
-          </div>
-          <p>O grupo me conectou com gente que está no mesmo foco. A troca de ideias fez toda a diferença.
-          </p>
-        </div>
-        <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <div class="depo-header">
-            <div class="depo-avatar" style="background:#d97706;color:#fff">AP</div>
-            <div class="depo-info">
-              <div class="author">Ana Paula M.</div>
-              <div class="depo-time">há 3 semanas</div>
-            </div>
-          </div>
-          <p>Entrei no grupo, li as mensagens fixadas e em pouco tempo já sabia como participar. Simples.</p>
-        </div>
-        <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <div class="depo-header">
-            <div class="depo-avatar" style="background:#16a34a;color:#fff">BL</div>
-            <div class="depo-info">
-              <div class="author">Bruno L.</div>
-              <div class="depo-time">há 2 meses</div>
-            </div>
-          </div>
-          <p>A comunidade é ativa e a galera realmente troca ideia. Vale muito a pena.</p>
-        </div>
-        <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <div class="depo-header">
-            <div class="depo-avatar" style="background:#e50914;color:#fff">CR</div>
-            <div class="depo-info">
-              <div class="author">Carla R.</div>
-              <div class="depo-time">há 1 semana</div>
-            </div>
-          </div>
-          <p>Recebi o link na hora e entrei no grupo. Tudo certo, recomendo.</p>
-        </div>
-        <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <div class="depo-header">
-            <div class="depo-avatar" style="background:#0891b2;color:#fff">PT</div>
-            <div class="depo-info">
-              <div class="author">Pedro T.</div>
-              <div class="depo-time">há 5 dias</div>
-            </div>
-          </div>
-          <p>Uso no celular e no notebook. O grupo fica aberto e participo quando posso.</p>
-        </div>
-        <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <div class="depo-header">
-            <div class="depo-avatar" style="background:#9333ea;color:#fff">JK</div>
-            <div class="depo-info">
-              <div class="author">Juliana K.</div>
-              <div class="depo-time">há 3 dias</div>
-            </div>
-          </div>
-          <p>Antes eu não sabia por onde começar. No grupo encontrei gente na mesma e a troca ajudou demais.</p>
-        </div>
-        <div class="depo-card">
-          <div class="depo-stars">★★★★★</div>
-          <div class="depo-header">
-            <div class="depo-avatar" style="background:#b45309;color:#fff">FG</div>
-            <div class="depo-info">
-              <div class="author">Fernando G.</div>
-              <div class="depo-time">há 1 mês</div>
-            </div>
-          </div>
-          <p>Conteúdo incrível e direto ao ponto. Já indiquei para amigos.</p>
-        </div>
-      </div>
-    </section>
-
 
     <section id="antes-depois" class="animate-on-scroll">
       <h2 class="section-title">Antes e depois</h2>
@@ -2257,7 +2151,7 @@
         </details>
         <details class="faq-item">
           <summary><span class="faq-q" aria-hidden="true">❓</span> O que exatamente está incluso?</summary>
-          <p>Você recebe o link do grupo (WhatsApp, Telegram ou o canal que a Mattilha usar), acesso à comunidade para networking, troca de ideias e novidades. Cadastro é gratuito.</p>
+          <p>Você recebe o link do grupo no WhatsApp, acesso à comunidade para networking, troca de ideias e novidades. Cadastro é gratuito.</p>
         </details>
         <details class="faq-item">
           <summary><span class="faq-q" aria-hidden="true">❓</span> Preciso ter experiência?</summary>
@@ -2289,7 +2183,7 @@
       <a href="#footer-contato">Contato</a>
     </div>
     <p class="footer-legal">© Mattilha. Todos os direitos reservados.</p>
-    <p class="footer-disclaimer">A comunidade pode atualizar regras e canais ao longo do tempo. Os dados fornecidos são utilizados exclusivamente para comunicação e nunca divulgados a terceiros. Os depoimentos são reais e não representam resultados únicos — cada pessoa é diferente.</p>
+    <p class="footer-disclaimer">A comunidade pode atualizar regras e canais ao longo do tempo. Os dados fornecidos são utilizados exclusivamente para comunicação e nunca divulgados a terceiros.</p>
   </footer>
 
   <!-- Sticky mobile CTA -->
