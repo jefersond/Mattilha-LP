@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Obrigado — Mattilha</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <meta name="description"
+    content="Cadastro recebido. Siga o próximo passo para entrar no grupo da Mattilha.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0B0B0D;
+      --card: #131318;
+      --text: #F5F5F7;
+      --text-muted: #A1A1AA;
+      --primary: #E50914;
+      --primary-hover: #FF3B30;
+      --border: rgba(255, 255, 255, 0.08);
+      --radius: 20px;
+      --radius-sm: 16px;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .header {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      background: rgba(11, 11, 13, 0.9);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .logo img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.4rem;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: background .2s, transform .15s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, #c7000c 100%);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary) 100%);
+      transform: translateY(-1px);
+    }
+
+    main {
+      min-height: calc(100vh - 160px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .wrapper {
+      max-width: 720px;
+      width: 100%;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--primary);
+      text-transform: uppercase;
+      background: rgba(229, 9, 20, 0.1);
+      border: 1px solid rgba(229, 9, 20, 0.25);
+      border-radius: 999px;
+      padding: 0.3rem 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--primary);
+      animation: blink 1.4s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    h1 {
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      font-weight: 800;
+      margin: 0 0 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .lead {
+      color: var(--text-muted);
+      margin: 0 0 1.75rem;
+    }
+
+    .progress-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .progress-track {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+      margin-bottom: 1rem;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 70%;
+      background: linear-gradient(90deg, var(--primary), var(--primary-hover));
+    }
+
+    .step-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .step-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .step-done {
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+    }
+
+    .step-current {
+      background: rgba(229, 9, 20, 0.2);
+      color: var(--primary);
+    }
+
+    .step-next {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-muted);
+    }
+
+    .step-title {
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.1rem;
+      font-size: 0.92rem;
+    }
+
+    .cta-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .cta-note {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      padding: 1.8rem 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        padding: 2rem 1.1rem;
+      }
+
+      .card {
+        padding: 1.75rem 1.35rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Voltar para a página principal da Mattilha">
+        <img src="logo.png" alt="Mattilha Pro">
+      </a>
+      <a href="lead.html" class="btn btn-primary">Voltar para o cadastro</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrapper">
+      <div class="card">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          PRÓXIMO PASSO
+        </div>
+        <h1>Cadastro recebido. Agora é só entrar no grupo.</h1>
+        <p class="lead">
+          Clique no botão abaixo para acessar o grupo oficial da Mattilha. Se não abrir, copie e cole o link no seu
+          navegador.
+        </p>
+
+        <div class="progress-steps">
+          <div class="progress-track">
+            <div class="progress-fill"></div>
+          </div>
+          <div class="step-row">
+            <div class="step-icon step-done">✓</div>
+            <div>
+              <div class="step-title">Passo 1 — Cadastro enviado</div>
+              <div>Seus dados foram recebidos com sucesso.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-icon step-current">2</div>
+            <div>
+              <div class="step-title">Passo 2 — Entrar no grupo</div>
+              <div>Agora é só clicar no botão e entrar para o grupo.</div>
+            </div>
+          </div>
+          <div class="step-row">
+            <div class="step-icon step-next">3</div>
+            <div>
+              <div class="step-title">Passo 3 — Começar a participar</div>
+              <div>Depois de entrar, veja as mensagens fixadas e comece a participar.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-block">
+          <!-- IMPORTANTE: troque LINK_DO_GRUPO_AQUI pelo link real do grupo (WhatsApp, Telegram etc.) -->
+          <a href="LINK_DO_GRUPO_AQUI" target="_blank" rel="noopener" class="btn btn-primary">
+            Entrar no grupo agora →
+          </a>
+          <p class="cta-note">
+            Se o link não abrir automaticamente, copie e cole o endereço na barra do navegador.
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    © Mattilha. Todos os direitos reservados.
+  </footer>
+</body>
+
+</html>
+

@@ -1,0 +1,9 @@
+{
+  "name": "mattilha-lp",
+  "version": "1.0.0",
+  "description": "LP Comunidade Mattilha",
+  "private": true,
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  }
+}

@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Mattilha — Seu ponto de virada para evoluir mais rápido</title>
+  <title>Mattilha — Cadastro para o Grupo</title>
   <link rel="icon" type="image/png" href="logo.png">
   <meta name="description"
-    content="Conteúdos organizados, trilhas práticas e uma comunidade com foco em resultado. Acesso imediato, organização por trilhas e atualizações constantes.">
+    content="Cadastre-se no grupo da Mattilha: nome, e-mail e WhatsApp. Receba o link do grupo e fique por dentro de conteúdos e novidades.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
@@ -1086,6 +1086,47 @@
       }
     }
 
+    /* Cadastro lead form */
+    .form-card .lead-form {
+      margin-top: 0.5rem;
+    }
+    .form-grid {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .form-label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+    }
+    .form-input {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      font-family: inherit;
+      color: var(--text);
+      background: var(--card-hover);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      transition: border-color 0.2s;
+    }
+    .form-input::placeholder {
+      color: var(--text-muted);
+    }
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .form-card .btn {
+      width: 100%;
+      padding: 1.1rem;
+      font-size: 1.05rem;
+      min-height: 56px;
+    }
+
     /* FAQ */
     .faq-list {
       max-width: 680px;
@@ -1828,20 +1869,19 @@
 <body>
   <header class="header">
     <div class="header-inner">
-      <a href="#" class="logo" aria-label="Mattilha início">
+      <a href="index.html" class="logo" aria-label="Mattilha início">
         <img src="logo.png" alt="Mattilha Pro">
       </a>
       <nav class="nav" aria-label="Navegação principal">
         <a href="#beneficios">Benefícios</a>
         <a href="#rateio">Rateio</a>
         <a href="loja.html">Loja</a>
-        <a href="lead.html">Cadastro</a>
+        <a href="#cadastro-grupo">Cadastro</a>
         <a href="#como-funciona">Como funciona</a>
-        <a href="#oferta">Oferta</a>
+        <a href="#cadastro-grupo">Entrar no grupo</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a href="https://pay.kiwify.com.br/SVr3ftb" target="_blank" rel="noopener" class="btn btn-primary">Quero
-        entrar</a>
+      <a href="#cadastro-grupo" class="btn btn-primary">Entrar no grupo</a>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -1853,12 +1893,11 @@
     <a href="#beneficios" class="mobile-nav-link">Benefícios</a>
     <a href="#rateio" class="mobile-nav-link">Rateio & Ferramentas</a>
     <a href="loja.html" class="mobile-nav-link">Loja</a>
-    <a href="lead.html" class="mobile-nav-link">Cadastro</a>
+    <a href="#cadastro-grupo" class="mobile-nav-link">Cadastro</a>
     <a href="#como-funciona" class="mobile-nav-link">Como funciona</a>
-    <a href="#oferta" class="mobile-nav-link">Oferta</a>
+    <a href="#cadastro-grupo" class="mobile-nav-link">Entrar no grupo</a>
     <a href="#faq" class="mobile-nav-link">FAQ</a>
-    <a href="https://pay.kiwify.com.br/SVr3ftb" target="_blank" rel="noopener" class="btn btn-primary">Garantir minha
-      vaga →</a>
+    <a href="#cadastro-grupo" class="btn btn-primary">Entrar no grupo →</a>
   </nav>
 
   <main>
@@ -1898,9 +1937,8 @@
         </div>
         <p class="hero-social">Junte-se a quem já está evoluindo com a Mattilha.</p>
         <div class="hero-ctas">
-          <a href="https://pay.kiwify.com.br/SVr3ftb" target="_blank" rel="noopener"
-            class="btn btn-primary btn-hero btn-pulse">Quero entrar na Mattilha →</a>
-          <a href="#categorias" class="btn btn-secondary btn-hero">Ver o que tem dentro</a>
+          <a href="#cadastro-grupo" class="btn btn-primary btn-hero btn-pulse">Entrar no grupo (cadastro gratuito) →</a>
+          <a href="#beneficios" class="btn btn-secondary btn-hero">Ver o que tem dentro</a>
         </div>
       </section>
     </div>
@@ -2266,72 +2304,22 @@
       </div>
     </section>
 
-    <section id="oferta" class="animate-on-scroll">
-      <div class="oferta-box">
-        <div class="urgency-tag"><span class="urgency-dot"></span> OFERTA COM PRAZO LIMITADO</div>
-        <h2>Tudo o que você precisa pra evoluir — sem gastar uma fortuna.</h2>
-        <p class="section-sub" style="margin-bottom:1rem">Conteúdos organizados, trilhas práticas, bônus exclusivos e
-          acesso à comunidade. Sem enrolação.</p>
-        <!-- Countdown -->
-        <div class="countdown-wrap">
-          <div class="countdown-unit"><span class="countdown-num" id="cd-h">00</span><span
-              class="countdown-label">Horas</span></div>
-          <div class="countdown-unit"><span class="countdown-num" id="cd-m">00</span><span
-              class="countdown-label">Min</span></div>
-          <div class="countdown-unit"><span class="countdown-num" id="cd-s">00</span><span
-              class="countdown-label">Seg</span></div>
-        </div>
-        <ul class="oferta-list">
-          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Trilhas e guias práticos (do básico ao avançado)</li>
-          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Templates, prompts, scripts e copys prontos</li>
-          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Planilhas, checklists e materiais de apoio</li>
-          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Drops/atualizações frequentes dentro do servidor</li>
-          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Garantia de 7 dias</li>
-        </ul>
-        <!-- Vagas progress -->
-        <div class="vagas-bar-wrap">
-          <div class="vagas-bar-label"><span>Vagas preenchidas</span><strong>72% ocupadas</strong></div>
-          <div class="vagas-bar-bg">
-            <div class="vagas-bar-fill"></div>
+    <section id="cadastro-grupo" class="animate-on-scroll">
+      <div class="oferta-box form-card">
+        <h2>Entrar no grupo da Mattilha</h2>
+        <p class="section-sub" style="margin-bottom:1.5rem">Preencha abaixo com nome, e-mail e WhatsApp. Você recebe o link do grupo na hora.</p>
+        <form class="lead-form" action="/api/cadastro" method="post">
+          <div class="form-grid">
+            <label class="form-label" for="lead-nome">Nome</label>
+            <input type="text" id="lead-nome" name="nome" class="form-input" placeholder="Seu nome" required autocomplete="name">
+            <label class="form-label" for="lead-email">E-mail</label>
+            <input type="email" id="lead-email" name="email" class="form-input" placeholder="seu@email.com" required autocomplete="email">
+            <label class="form-label" for="lead-whatsapp">WhatsApp</label>
+            <input type="tel" id="lead-whatsapp" name="whatsapp" class="form-input" placeholder="(00) 00000-0000" required autocomplete="tel">
           </div>
-        </div>
-        <p class="oferta-quanto">Quanto custa ter acesso?</p>
-        <p class="oferta-preco-label">POR APENAS 12X DE</p>
-        <p class="preco-parcela preco-destaque">R$ 6,20</p>
-        <p class="preco-avista">OU R$ 59,90 À VISTA</p>
-        <a href="https://pay.kiwify.com.br/SVr3ftb" target="_blank" rel="noopener"
-          class="btn btn-primary btn-pulse">Garantir minha vaga agora →</a>
-        <p class="microcopy">Acesso imediato • Pagamento seguro • Suporte por e-mail</p>
-        <div class="selos">
-          <span class="selo"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg> Compra Segura</span>
-          <span class="selo"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5">
-              <rect x="3" y="11" width="18" height="11" rx="2" />
-              <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-            </svg> SSL Criptografado</span>
-          <span class="selo"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2.5">
-              <path d="M20 6L9 17l-5-5" />
-            </svg> Kiwify</span>
-        </div>
+          <button type="submit" class="btn btn-primary btn-pulse">Entrar no grupo →</button>
+        </form>
+        <p class="microcopy">Cadastro gratuito • Seus dados não são compartilhados</p>
       </div>
     </section>
 
@@ -2351,8 +2339,7 @@
         </details>
         <details class="faq-item">
           <summary><span class="faq-q" aria-hidden="true">❓</span> Tem mensalidade?</summary>
-          <p>O valor é único (ou parcelado no cartão, conforme a oferta). Consulte a seção Oferta para ver as condições
-            atuais.</p>
+          <p>Nesta página você só se cadastra no grupo (gratuito). Para ver valores de planos pagos, acesse a <a href="index.html#oferta">oferta na página principal</a>.</p>
         </details>
         <details class="faq-item">
           <summary><span class="faq-q" aria-hidden="true">❓</span> Posso cancelar?</summary>
@@ -2409,8 +2396,8 @@
 
   <!-- Sticky mobile CTA -->
   <div class="sticky-cta" id="sticky-cta">
-    <a href="https://pay.kiwify.com.br/SVr3ftb" target="_blank" rel="noopener">
-      🚀 Garantir minha vaga — R$ 6,20/mês
+    <a href="#cadastro-grupo">
+      🚀 Entrar no grupo (cadastro gratuito)
     </a>
   </div>
 
@@ -2488,13 +2475,13 @@
       setInterval(tick, 1000);
     })();
 
-    // Hide sticky CTA when #oferta is visible
+    // Hide sticky CTA when #cadastro-grupo is visible
     (function () {
       var cta = document.getElementById('sticky-cta');
-      var oferta = document.getElementById('oferta');
-      if (!cta || !oferta) return;
+      var cadastro = document.getElementById('cadastro-grupo');
+      if (!cta || !cadastro) return;
       function update() {
-        var r = oferta.getBoundingClientRect();
+        var r = cadastro.getBoundingClientRect();
         if (r.top < window.innerHeight && r.bottom > 0) {
           cta.style.display = 'none';
         } else {
@@ -2509,8 +2496,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Mattilha — Seu ponto de virada para evoluir mais rápido",
-    "description": "Conteúdos organizados, trilhas práticas e uma comunidade com foco em resultado. Acesso imediato, organização por trilhas e atualizações constantes.",
+    "name": "Mattilha — Cadastro para o Grupo",
+    "description": "Cadastre-se no grupo da Mattilha: nome, e-mail e WhatsApp. Receba o link do grupo e fique por dentro de conteúdos e novidades.",
     "inLanguage": "pt-BR",
     "publisher": { "@type": "Organization", "name": "Mattilha" }
   }
