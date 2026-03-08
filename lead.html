@@ -556,8 +556,11 @@
     /* Benefícios */
     #beneficios .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .card {
@@ -605,7 +608,12 @@
       font-size: 0.95rem;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
+      #beneficios .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
       #beneficios .grid {
         grid-template-columns: 1fr;
       }
@@ -1812,9 +1820,20 @@
     /* Rateio Grid Section */
     .rateio-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
-      margin-top: 3rem;
+      margin: 3rem auto 0;
+      max-width: 1200px;
+    }
+    @media (max-width: 900px) {
+      .rateio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 480px) {
+      .rateio-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .rateio-item {
@@ -1879,11 +1898,9 @@
         <a href="loja.html">Loja</a>
         <a href="#cadastro-grupo">Cadastro</a>
         <a href="#como-funciona">Como funciona</a>
-        <!-- Troque LINK_DO_GRUPO_AQUI pelo link do grupo no WhatsApp (ex: https://chat.whatsapp.com/xxx) -->
-        <a href="LINK_DO_GRUPO_AQUI" target="_blank" rel="noopener">Entrar no grupo</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a href="LINK_DO_GRUPO_AQUI" target="_blank" rel="noopener" class="btn btn-primary">Entrar no grupo</a>
+      <a href="#cadastro-grupo" class="btn btn-primary">Entra para a Mattilha</a>
       <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -1897,9 +1914,8 @@
     <a href="loja.html" class="mobile-nav-link">Loja</a>
     <a href="#cadastro-grupo" class="mobile-nav-link">Cadastro</a>
     <a href="#como-funciona" class="mobile-nav-link">Como funciona</a>
-    <a href="LINK_DO_GRUPO_AQUI" target="_blank" rel="noopener" class="mobile-nav-link">Entrar no grupo</a>
     <a href="#faq" class="mobile-nav-link">FAQ</a>
-    <a href="LINK_DO_GRUPO_AQUI" target="_blank" rel="noopener" class="btn btn-primary">Entrar no grupo →</a>
+    <a href="#cadastro-grupo" class="btn btn-primary">Entra para a Mattilha</a>
   </nav>
 
   <main>
