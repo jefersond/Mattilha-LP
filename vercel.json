@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/lead.htm",
+      "destination": "/lead.html",
+      "permanent": true
+    }
+  ]
+}
