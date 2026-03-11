@@ -4,10 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Mattilha — Seu ponto de virada para evoluir mais rápido</title>
+  <title>Mattilha — Ecossistema organizado para evoluir no digital</title>
   <link rel="icon" type="image/png" href="logo.png">
   <meta name="description"
-    content="Conteúdos organizados, trilhas práticas e uma comunidade com foco em resultado. Acesso imediato, organização por trilhas e atualizações constantes.">
+    content="Comunidade organizada no Discord: canais por área, networking real, materiais práticos e ambiente para aprender, trocar e evoluir no digital.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
@@ -607,6 +607,15 @@
 
     @media (max-width: 768px) {
       #beneficios .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    #o-que-encontra .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: 768px) {
+      #o-que-encontra .grid {
         grid-template-columns: 1fr;
       }
     }
@@ -1832,8 +1841,8 @@
         <img src="logo.png" alt="Mattilha Pro">
       </a>
       <nav class="nav" aria-label="Navegação principal">
-        <a href="#beneficios">Benefícios</a>
-        <a href="#rateio">Rateio</a>
+        <a href="#beneficios">O que é</a>
+        <a href="#rateio">Organização</a>
         <a href="loja.html">Loja</a>
         <a href="lead.html#cadastro-grupo">Cadastro</a>
         <a href="#como-funciona">Como funciona</a>
@@ -1849,8 +1858,8 @@
 
   <!-- Mobile overlay menu -->
   <nav class="mobile-overlay" id="mobile-overlay" aria-label="Menu mobile">
-    <a href="#beneficios" class="mobile-nav-link">Benefícios</a>
-    <a href="#rateio" class="mobile-nav-link">Rateio & Ferramentas</a>
+    <a href="#beneficios" class="mobile-nav-link">O que é</a>
+    <a href="#rateio" class="mobile-nav-link">Organização</a>
     <a href="loja.html" class="mobile-nav-link">Loja</a>
     <a href="lead.html#cadastro-grupo" class="mobile-nav-link">Cadastro</a>
     <a href="#como-funciona" class="mobile-nav-link">Como funciona</a>
@@ -1869,63 +1878,68 @@
       </div>
       <!-- Conteúdo textual (começa exatamente onde o banner termina) -->
       <section class="hero">
-        <p class="hero-tagline">TRILHAS + ATUALIZAÇÕES + COMUNIDADE</p>
-        <h1>A Mattilha é o seu ponto de virada para <span style="color:var(--primary)">evoluir mais rápido.</span></h1>
-        <p class="sub">Conteúdos organizados, trilhas práticas e uma comunidade com foco em resultado — tudo em um só
-          lugar.</p>
+        <p class="hero-tagline">COMUNIDADE • CANAIS POR ÁREA • NETWORKING</p>
+        <h1>Um ecossistema organizado para <span style="color:var(--primary)">evoluir no digital.</span></h1>
+        <p class="sub">Comunidade estruturada no Discord: canais por tema, materiais práticos, networking real e ambiente para aprender, trocar e acessar oportunidades — sem bagunça.</p>
         <div class="hero-bullets">
           <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M20 6L9 17l-5-5" />
-            </svg> Acesso imediato</span>
+            </svg> Canais organizados por área</span>
           <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M20 6L9 17l-5-5" />
-            </svg> Organização por trilhas</span>
+            </svg> Networking e troca real</span>
           <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M20 6L9 17l-5-5" />
-            </svg> Atualizações constantes</span>
+            </svg> Materiais e acesso guiado</span>
         </div>
-        <p class="hero-social">Junte-se a quem já está evoluindo com a Mattilha.</p>
+        <p class="hero-social">Ambiente ativo, com estrutura e utilidade prática.</p>
         <div class="hero-ctas">
           <a href="https://pay.kiwify.com.br/SVr3ftb" target="_blank" rel="noopener"
-            class="btn btn-primary btn-hero btn-pulse">Quero entrar na Mattilha →</a>
-          <a href="#categorias" class="btn btn-secondary btn-hero">Ver o que tem dentro</a>
+            class="btn btn-primary btn-hero btn-pulse">Quero entrar na Mattilha</a>
+          <a href="#beneficios" class="btn btn-secondary btn-hero">Ver como funciona</a>
         </div>
       </section>
     </div>
 
-    <!-- Ticker social proof -->
+    <!-- Ticker -->
     <div class="ticker-wrap" aria-hidden="true">
       <div class="ticker-track">
-        <span class="ticker-item"><strong>+500</strong> membros ativos <span class="ticker-dot">●</span></span>
-        <span class="ticker-item"><strong>4.9/5</strong> de satisfação <span class="ticker-dot">●</span></span>
-        <span class="ticker-item"><strong>7 dias</strong> de garantia total <span class="ticker-dot">●</span></span>
-        <span class="ticker-item">Acesso <strong>imediato</strong> após pagamento <span
-            class="ticker-dot">●</span></span>
-        <span class="ticker-item">Trilhas do <strong>básico ao avançado</strong> <span
-            class="ticker-dot">●</span></span>
-        <span class="ticker-item">Pagamento <strong>100% seguro</strong> <span class="ticker-dot">●</span></span>
-        <span class="ticker-item"><strong>+500</strong> membros ativos <span class="ticker-dot">●</span></span>
-        <span class="ticker-item"><strong>4.9/5</strong> de satisfação <span class="ticker-dot">●</span></span>
-        <span class="ticker-item"><strong>7 dias</strong> de garantia total <span class="ticker-dot">●</span></span>
-        <span class="ticker-item">Acesso <strong>imediato</strong> após pagamento <span
-            class="ticker-dot">●</span></span>
-        <span class="ticker-item">Trilhas do <strong>básico ao avançado</strong> <span
-            class="ticker-dot">●</span></span>
-        <span class="ticker-item">Pagamento <strong>100% seguro</strong> <span class="ticker-dot">●</span></span>
+        <span class="ticker-item">Comunidade <strong>organizada</strong> <span class="ticker-dot">●</span></span>
+        <span class="ticker-item">Canais por <strong>área</strong> <span class="ticker-dot">●</span></span>
+        <span class="ticker-item"><strong>Networking</strong> real <span class="ticker-dot">●</span></span>
+        <span class="ticker-item">Acesso <strong>imediato</strong> <span class="ticker-dot">●</span></span>
+        <span class="ticker-item">Materiais <strong>práticos</strong> <span class="ticker-dot">●</span></span>
+        <span class="ticker-item"><strong>7 dias</strong> de garantia <span class="ticker-dot">●</span></span>
+        <span class="ticker-item">Comunidade <strong>organizada</strong> <span class="ticker-dot">●</span></span>
+        <span class="ticker-item">Canais por <strong>área</strong> <span class="ticker-dot">●</span></span>
+        <span class="ticker-item"><strong>Networking</strong> real <span class="ticker-dot">●</span></span>
+        <span class="ticker-item">Acesso <strong>imediato</strong> <span class="ticker-dot">●</span></span>
+        <span class="ticker-item">Materiais <strong>práticos</strong> <span class="ticker-dot">●</span></span>
+        <span class="ticker-item"><strong>7 dias</strong> de garantia <span class="ticker-dot">●</span></span>
       </div>
     </div>
 
     <section id="beneficios" class="animate-on-scroll">
-      <h2 class="section-title">Tá, mas o que faz a Mattilha valer a pena?</h2>
-      <p class="section-sub">Tudo pensado pra você não perder tempo e ir direto ao que importa.</p>
+      <h2 class="section-title">O que é a Mattilha?</h2>
+      <p class="section-sub">Não é só um servidor e não é só um pacote de bônus. É um ambiente organizado.</p>
       <div class="grid">
+        <div class="card">
+          <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+              <circle cx="9" cy="7" r="4" />
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+            </svg></div>
+          <h3>Ecossistema, não só Discord</h3>
+          <p>O Discord é onde tudo acontece, mas o valor está na estrutura: canais por área, materiais e gente no mesmo jogo.</p>
+        </div>
         <div class="card">
           <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2">
               <path d="M4 6h16M4 12h16M4 18h16" />
             </svg></div>
-          <h3>Conteúdo organizado</h3>
-          <p>Menos caos, mais clareza do que estudar e quando.</p>
+          <h3>Aprender e trocar</h3>
+          <p>Lá dentro você estuda, tira dúvidas, troca experiências e acessa materiais práticos com aplicação real.</p>
         </div>
         <div class="card">
           <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -1933,196 +1947,152 @@
               <circle cx="12" cy="12" r="10" />
               <path d="M12 6v6l4 2" />
             </svg></div>
-          <h3>Trilhas práticas</h3>
-          <p>Do básico ao avançado com passos objetivos.</p>
-        </div>
-        <div class="card">
-          <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-              stroke-width="2">
-              <rect x="3" y="4" width="18" height="18" rx="2" />
-              <path d="M16 2v4M8 2v4M3 10h18" />
-            </svg></div>
-          <h3>Rotina simples</h3>
-          <p>Você sabe exatamente o que fazer no dia 1, 7 e 30.</p>
+          <h3>Evoluir no digital</h3>
+          <p>Tráfego, marketing, operação, automação e networking em um só lugar — organizado e acessível.</p>
         </div>
       </div>
     </section>
 
-    <!-- ===== RATEIO E FERRAMENTAS SECTION ===== -->
+    <!-- ===== COMO A COMUNIDADE É ORGANIZADA ===== -->
     <section id="rateio" class="animate-on-scroll">
-      <h2 class="section-title">ACESSO TOTAL AO NOSSO <span class="title-highlight">RATEIO & FERRAMENTAS</span></h2>
-      <p class="section-sub">Ferramentas premium, scripts e ativos que custam uma fortuna lá fora, liberados para você
-        usar.</p>
-
+      <h2 class="section-title">Como a comunidade é organizada</h2>
+      <p class="section-sub">Canais por área, ordem e profundidade. Tudo separado por tema para você achar o que importa.</p>
       <div class="rateio-grid">
         <div class="rateio-item">
-          <div class="rateio-icon">🛠️</div>
-          <div class="rateio-title">Source Code, SaaS & iGaming</div>
-          <div class="rateio-desc">O ativo mais valioso. Código da própria bet/software</div>
+          <div class="rateio-icon">📌</div>
+          <div class="rateio-title">Geral</div>
+          <div class="rateio-desc">Avisos, boas-vindas e orientação para começar</div>
         </div>
-
         <div class="rateio-item">
-          <div class="rateio-icon">🛡️</div>
-          <div class="rateio-title">Contingência & Aquecimento de Chips</div>
-          <div class="rateio-desc">Ferramentas anti-bloqueio</div>
+          <div class="rateio-icon">📈</div>
+          <div class="rateio-title">Tráfego e vendas</div>
+          <div class="rateio-desc">Estratégias, anúncios, funis e conversão</div>
         </div>
-
         <div class="rateio-item">
-          <div class="rateio-icon">🔞</div>
-          <div class="rateio-title">Nicho Black & Hot (+18)</div>
-          <div class="rateio-desc">Conteúdo underground exclusivo</div>
+          <div class="rateio-icon">✏️</div>
+          <div class="rateio-title">Marketing e conteúdo</div>
+          <div class="rateio-desc">Copy, criativos e produção de conteúdo</div>
         </div>
-
         <div class="rateio-item">
-          <div class="rateio-icon">🎨</div>
-          <div class="rateio-title">Pack de Design & Criativos Virais</div>
-          <div class="rateio-desc">Artes editáveis para anúncios</div>
+          <div class="rateio-icon">⚙️</div>
+          <div class="rateio-title">Produtos e operação</div>
+          <div class="rateio-desc">Estrutura, processos e entrega</div>
         </div>
-
-        <div class="rateio-item">
-          <div class="rateio-icon">🧩</div>
-          <div class="rateio-title">Pack de Extensões & Plugins Pro</div>
-          <div class="rateio-desc">Elementor Pro, WP Rocket, etc.</div>
-        </div>
-
-        <div class="rateio-item">
-          <div class="rateio-icon">📱</div>
-          <div class="rateio-title">APKs Mod & Apps Premium</div>
-          <div class="rateio-desc">Softwares pagos desbloqueados</div>
-        </div>
-
-        <div class="rateio-item">
-          <div class="rateio-icon">💾</div>
-          <div class="rateio-title">Pack de +30k PLRs Premium</div>
-          <div class="rateio-desc">Produto pronto para venda rápida</div>
-        </div>
-
         <div class="rateio-item">
           <div class="rateio-icon">🤖</div>
-          <div class="rateio-title">Robôs & Automação (Zap/Insta)</div>
-          <div class="rateio-desc">Ferramentas de eficiência</div>
+          <div class="rateio-title">Automação</div>
+          <div class="rateio-desc">Ferramentas, bots e eficiência operacional</div>
         </div>
-
         <div class="rateio-item">
-          <div class="rateio-icon">📄</div>
-          <div class="rateio-title">Páginas de Vendas Clonadas</div>
-          <div class="rateio-desc">Modelos de alta conversão prontos</div>
+          <div class="rateio-icon">🤝</div>
+          <div class="rateio-title">Networking</div>
+          <div class="rateio-desc">Conexão, troca e oportunidades</div>
         </div>
+      </div>
+    </section>
 
-        <div class="rateio-item">
-          <div class="rateio-icon">💬</div>
-          <div class="rateio-title">Scripts de Venda & Copy Pronta</div>
-          <div class="rateio-desc">Arquivos para copiar e colar</div>
+    <!-- ===== O QUE VOCÊ ENCONTRA LÁ DENTRO ===== -->
+    <section id="o-que-encontra" class="animate-on-scroll">
+      <h2 class="section-title">O que você encontra lá dentro</h2>
+      <p class="section-sub">Estrutura que vira benefício: suporte, troca e materiais com aplicação real.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg></div>
+          <h3>Canais de suporte e dúvidas</h3>
+          <p>Perguntas, respostas e orientação dentro da própria comunidade.</p>
         </div>
+        <div class="card">
+          <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" /></svg></div>
+          <h3>Networking por voz e texto</h3>
+          <p>Salas e canais para trocar ideias e conectar com quem está no jogo.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" /></svg></div>
+          <h3>Materiais e estratégias</h3>
+          <p>Tráfego, marketing, vendas e automação em formato prático e acessível.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg></div>
+          <h3>Recursos e atualizações</h3>
+          <p>Conteúdos, templates e drops frequentes dentro do servidor.</p>
+        </div>
+      </div>
+    </section>
 
-        <div class="rateio-item">
-          <div class="rateio-icon">🔔</div>
-          <div class="rateio-title">Gerador de Prova Social</div>
-          <div class="rateio-desc">Notificações que aumentam conversão</div>
-        </div>
+    <!-- ===== NÃO É SÓ CONTEÚDO, É AMBIENTE ===== -->
+    <section id="ambiente" class="animate-on-scroll">
+      <h2 class="section-title">Não é só conteúdo, é ambiente</h2>
+      <p class="section-sub">O valor está no espaço, na troca e na organização — não só nos arquivos.</p>
+      <div class="lista" style="max-width:640px; margin:0 auto;">
+        <ul>
+          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Pertença a um ecossistema real, com gente ativa e estrutura clara</li>
+          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Menos “pacote de coisa solta”, mais comunidade com ordem e utilidade</li>
+          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Acesso guiado: você sabe por onde começar e como aproveitar</li>
+        </ul>
+      </div>
+    </section>
 
-        <div class="rateio-item">
-          <div class="rateio-icon">🎬</div>
-          <div class="rateio-title">Edição de Vídeo & VSL</div>
-          <div class="rateio-desc">Templates, presets e projetos prontos para editar</div>
+    <!-- ===== NETWORKING REAL ===== -->
+    <section id="networking" class="animate-on-scroll">
+      <h2 class="section-title">Networking real</h2>
+      <p class="section-sub">Não é só consumo passivo. Existe interação, salas e possibilidade real de conexão.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>Troca direta</h3>
+          <p>Conversas por voz e texto com quem está na mesma área que você.</p>
         </div>
+        <div class="card">
+          <h3>Oportunidades</h3>
+          <p>Parcerias, indicações e contatos que fazem sentido para o seu momento.</p>
+        </div>
+        <div class="card">
+          <h3>Ambiente ativo</h3>
+          <p>Comunidade com movimento, não servidor parado ou abandonado.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PARA QUEM É ===== -->
+    <section id="para-quem" class="animate-on-scroll">
+      <h2 class="section-title">Para quem é</h2>
+      <p class="section-sub">Quem mais se beneficia da Mattilha.</p>
+      <div class="lista" style="max-width:560px; margin:0 auto;">
+        <ul>
+          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Quem quer evoluir no digital com mais clareza e menos caos</li>
+          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Quem busca ambiente organizado e networking útil</li>
+          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Quem quer aprender e executar, não só consumir conteúdo</li>
+          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Quem quer acesso a áreas práticas: tráfego, marketing, operação, automação</li>
+        </ul>
       </div>
     </section>
 
 
 
     <section id="como-funciona" class="animate-on-scroll">
-      <h2 class="section-title">Como funciona o acesso?</h2>
-      <p class="section-sub">Em menos de 5 minutos você já pode estar por dentro.</p>
+      <h2 class="section-title">Como funciona o acesso</h2>
+      <p class="section-sub">Três passos. Entra, acessa o servidor e explora no seu ritmo.</p>
       <div class="steps">
         <div class="step">
           <div class="step-num">1</div>
-          <h3>Você entra para a Mattilha</h3>
+          <h3>Você entra</h3>
           <p>Após a inscrição, o acesso é liberado e enviado para o seu e-mail.</p>
         </div>
         <div class="step">
           <div class="step-num">2</div>
-          <h3>Recebe as instruções por e-mail</h3>
-          <p>Um guia rápido explica como acessar, navegar e aproveitar o conteúdo.</p>
+          <h3>Acessa o servidor</h3>
+          <p>Link e guia rápido para entrar no Discord e entender a estrutura.</p>
         </div>
         <div class="step">
           <div class="step-num">3</div>
-          <h3>Começa com uma trilha recomendada</h3>
-          <p>Escolha uma trilha e siga os passos no seu ritmo.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="o-que-recebe" class="animate-on-scroll">
-      <h2 class="section-title">Tudo que está incluso</h2>
-      <p class="section-sub">O que você leva quando entra na Mattilha.</p>
-      <div class="lista">
-        <ul>
-          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Trilhas e guias práticos (do básico ao avançado)</li>
-          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Templates, prompts, scripts e copys prontos</li>
-          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Planilhas, checklists e materiais de apoio</li>
-          <li><span class="check" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Drops/atualizações frequentes dentro do servidor</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="bonus" class="animate-on-scroll">
-      <h2 class="section-title">Bônus exclusivos para membros</h2>
-      <p class="section-sub">Extras para você começar com o pé direito.</p>
-      <div class="grid">
-        <div class="bonus-card">
-          <div class="bonus-tag">#BÔNUS 1</div>
-          <h3>Plano de 7 dias</h3>
-          <p class="bonus-desc">Um roteiro simples pra você engrenar.</p>
-          <p class="bonus-de">De R$ 47,00</p>
-          <p class="bonus-gratis">NESSA OFERTA: GRÁTIS</p>
-        </div>
-        <div class="bonus-card">
-          <div class="bonus-tag">#BÔNUS 2</div>
-          <h3>Checklist de foco</h3>
-          <p class="bonus-desc">Pra manter consistência sem travar.</p>
-          <p class="bonus-de">De R$ 37,00</p>
-          <p class="bonus-gratis">NESSA OFERTA: GRÁTIS</p>
-        </div>
-        <div class="bonus-card">
-          <div class="bonus-tag">#BÔNUS 3</div>
-          <h3>Templates prontos</h3>
-          <p class="bonus-desc">Modelos editáveis para acelerar.</p>
-          <p class="bonus-de">De R$ 67,00</p>
-          <p class="bonus-gratis">NESSA OFERTA: GRÁTIS</p>
-        </div>
-        <div class="bonus-card">
-          <div class="bonus-tag">#BÔNUS 4</div>
-          <h3>Trilha "começo do zero"</h3>
-          <p class="bonus-desc">Pra quem quer direção clara.</p>
-          <p class="bonus-de">De R$ 57,00</p>
-          <p class="bonus-gratis">NESSA OFERTA: GRÁTIS</p>
-        </div>
-        <div class="bonus-card">
-          <div class="bonus-tag">#BÔNUS 5</div>
-          <h3>Desafio semanal</h3>
-          <p class="bonus-desc">Pra sair do consumo e ir pra prática.</p>
-          <p class="bonus-de">De R$ 27,00</p>
-          <p class="bonus-gratis">NESSA OFERTA: GRÁTIS</p>
+          <h3>Explora no seu ritmo</h3>
+          <p>Navegue pelos canais, use os materiais e participe do networking quando quiser.</p>
         </div>
       </div>
     </section>
 
     <section id="depoimentos" class="animate-on-scroll">
-      <h2 class="section-title">O que quem já entrou tá falando da Mattilha</h2>
-      <p class="section-sub">Experiências reais de quem já está por dentro.</p>
+      <h2 class="section-title">O que quem já entrou fala da Mattilha</h2>
+      <p class="section-sub">Experiências de organização, utilidade e troca na comunidade.</p>
       <div class="grid">
         <div class="depo-card">
           <div class="depo-stars">★★★★★</div>
@@ -2231,24 +2201,24 @@
 
     <section id="antes-depois" class="animate-on-scroll">
       <h2 class="section-title">Antes e depois</h2>
-      <p class="section-sub">O que muda quando você tem um caminho claro.</p>
+      <p class="section-sub">O que muda quando você tem um ambiente organizado.</p>
       <div class="cols">
         <div class="antes-depois-card antes-card">
-          <h3>🛑 Antes da Mattilha</h3>
+          <h3>🛑 Antes</h3>
           <ul>
             <li>Conteúdos espalhados e sem ordem</li>
+            <li>Sem ambiente para trocar e conectar</li>
             <li>Dúvida sobre por onde começar</li>
-            <li>Falta de consistência nos estudos</li>
-            <li>Pouco tempo para organizar o que estudar</li>
+            <li>Tentando evoluir sozinho, sem rede</li>
           </ul>
         </div>
         <div class="antes-depois-card depois-card">
           <h3>✨ Depois da Mattilha</h3>
           <ul>
-            <li>Trilhas organizadas do básico ao avançado</li>
-            <li>Um guia e uma trilha recomendada pra começar</li>
-            <li>Rotina simples: dia 1, 7 e 30 definidos</li>
-            <li>Tudo em um só lugar, com atualizações constantes</li>
+            <li>Acesso por área, com organização clara</li>
+            <li>Networking e troca com quem está no jogo</li>
+            <li>Materiais práticos e guia de começo</li>
+            <li>Comunidade ativa e ecossistema contínuo</li>
           </ul>
         </div>
       </div>
@@ -2256,10 +2226,9 @@
 
     <section id="oferta" class="animate-on-scroll">
       <div class="oferta-box">
-        <div class="urgency-tag"><span class="urgency-dot"></span> OFERTA COM PRAZO LIMITADO</div>
-        <h2>Tudo o que você precisa pra evoluir — sem gastar uma fortuna.</h2>
-        <p class="section-sub" style="margin-bottom:1rem">Conteúdos organizados, trilhas práticas, bônus exclusivos e
-          acesso à comunidade. Sem enrolação.</p>
+        <div class="urgency-tag"><span class="urgency-dot"></span> ACESSO AO ECOSSISTEMA</div>
+        <h2>Acesso à comunidade organizada, canais por área e networking real.</h2>
+        <p class="section-sub" style="margin-bottom:1rem">Não é pacote solto: é ambiente contínuo, com materiais práticos, suporte e troca. Entra, acessa o servidor e explora no seu ritmo.</p>
         <!-- Countdown -->
         <div class="countdown-wrap">
           <div class="countdown-unit"><span class="countdown-num" id="cd-h">00</span><span
@@ -2270,26 +2239,11 @@
               class="countdown-label">Seg</span></div>
         </div>
         <ul class="oferta-list">
-          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Trilhas e guias práticos (do básico ao avançado)</li>
-          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Templates, prompts, scripts e copys prontos</li>
-          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Planilhas, checklists e materiais de apoio</li>
-          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Drops/atualizações frequentes dentro do servidor</li>
-          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <path d="M20 6L9 17l-5-5" />
-              </svg></span> Garantia de 7 dias</li>
+          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Comunidade organizada no Discord, com canais por área</li>
+          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Networking, suporte e troca real</li>
+          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Materiais práticos, trilhas e recursos</li>
+          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Atualizações e novos conteúdos no servidor</li>
+          <li><span class="check"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5" /></svg></span> Garantia de 7 dias</li>
         </ul>
         <!-- Vagas progress -->
         <div class="vagas-bar-wrap">
@@ -2324,57 +2278,44 @@
     </section>
 
     <section id="faq" class="animate-on-scroll">
-      <h2 class="section-title">FAQ — PERGUNTAS ESSENCIAIS</h2>
-      <p class="section-sub">Respostas rápidas pras dúvidas mais comuns.</p>
+      <h2 class="section-title">Perguntas frequentes</h2>
+      <p class="section-sub">Respostas diretas para tráfego frio.</p>
       <div class="faq-list">
         <details class="faq-item">
-          <summary><span class="faq-q" aria-hidden="true">❓</span> Como recebo o acesso?</summary>
-          <p>Após a confirmação do pagamento, você recebe um e-mail com o link de acesso e um guia de começo rápido. O
-            acesso é liberado na hora.</p>
+          <summary><span class="faq-q" aria-hidden="true">❓</span> O que é a Mattilha?</summary>
+          <p>É um ecossistema organizado no Discord: comunidade com canais por área, networking real, materiais práticos e ambiente para aprender, trocar e evoluir no digital. Não é só um servidor nem um pacote de bônus — é estrutura, troca e acesso guiado.</p>
         </details>
         <details class="faq-item">
-          <summary><span class="faq-q" aria-hidden="true">❓</span> Funciona no celular?</summary>
-          <p>Sim. A página e as trilhas podem ser acessadas pelo celular ou tablet. Basta ter conexão com a internet.
-          </p>
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Como funciona o acesso?</summary>
+          <p>Você se inscreve, recebe o link e o guia por e-mail, entra no Discord e explora a estrutura no seu ritmo. O acesso é liberado na hora após a confirmação do pagamento.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Para quem faz sentido?</summary>
+          <p>Quem quer evoluir no digital com mais clareza, ambiente organizado e networking útil. Quem quer aprender e executar, com acesso a áreas práticas como tráfego, marketing, operação e automação.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> O que encontro lá dentro?</summary>
+          <p>Canais organizados por tema (geral, tráfego, marketing, produtos, automação, networking), materiais práticos, suporte e dúvidas, troca por voz e texto, e atualizações frequentes no servidor.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Como a comunidade é organizada?</summary>
+          <p>Por áreas: cada tema tem seu espaço. Você acha o que precisa sem bagunça. Existe guia de começo e estrutura clara para navegar.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Existe suporte e networking?</summary>
+          <p>Sim. Canais de dúvidas, salas de voz e texto para troca, e comunidade ativa. Não é só consumo passivo — há interação e conexão.</p>
+        </details>
+        <details class="faq-item">
+          <summary><span class="faq-q" aria-hidden="true">❓</span> Serve para iniciante ou avançado?</summary>
+          <p>Os dois. Tem conteúdo e trilhas do básico ao avançado, guia de começo e áreas para quem já está rodando. Cada um usa no seu ritmo.</p>
         </details>
         <details class="faq-item">
           <summary><span class="faq-q" aria-hidden="true">❓</span> Tem mensalidade?</summary>
-          <p>O valor é único (ou parcelado no cartão, conforme a oferta). Consulte a seção Oferta para ver as condições
-            atuais.</p>
-        </details>
-        <details class="faq-item">
-          <summary><span class="faq-q" aria-hidden="true">❓</span> Posso cancelar?</summary>
-          <p>Se for assinatura, você pode cancelar a qualquer momento. O acesso permanece até o fim do período já pago.
-            Em planos únicos, não há cobrança recorrente.</p>
+          <p>Consulte a seção Oferta para as condições atuais. O valor pode ser único ou parcelado no cartão.</p>
         </details>
         <details class="faq-item">
           <summary><span class="faq-q" aria-hidden="true">❓</span> Como funciona a garantia?</summary>
-          <p>Você tem 7 dias para testar. Se não fizer sentido pra você, é só pedir o reembolso por e-mail dentro do
-            prazo. Devolvemos 100% do valor.</p>
-        </details>
-        <details class="faq-item">
-          <summary><span class="faq-q" aria-hidden="true">❓</span> O que exatamente está incluso?</summary>
-          <p>Trilhas e guias práticos (do básico ao avançado), templates e copys prontos, planilhas e checklists, drops
-            e atualizações frequentes no servidor, além da garantia de 7 dias e suporte por e-mail.</p>
-        </details>
-        <details class="faq-item">
-          <summary><span class="faq-q" aria-hidden="true">❓</span> Preciso ter experiência?</summary>
-          <p>Não. As trilhas atendem do básico ao avançado. Tem trilha "começo do zero" e guia de começo rápido pra quem
-            está começando.</p>
-        </details>
-        <details class="faq-item">
-          <summary><span class="faq-q" aria-hidden="true">❓</span> Quanto tempo por dia?</summary>
-          <p>Depende da trilha e do seu ritmo. Você define. Muitas pessoas dedicam de 15 a 30 minutos por dia; outras
-            fazem blocos maiores quando podem.</p>
-        </details>
-        <details class="faq-item">
-          <summary><span class="faq-q" aria-hidden="true">❓</span> Como são as atualizações?</summary>
-          <p>Novos conteúdos e melhorias nas trilhas são adicionados ao longo do tempo. Você tem acesso a tudo sem custo
-            extra (conforme o plano).</p>
-        </details>
-        <details class="faq-item">
-          <summary><span class="faq-q" aria-hidden="true">❓</span> Como falar com o suporte?</summary>
-          <p>Por e-mail. O endereço é enviado no guia de acesso. Respondemos em até 48 horas úteis.</p>
+          <p>7 dias para testar. Se não fizer sentido, é só pedir reembolso por e-mail dentro do prazo. Devolução de 100% do valor.</p>
         </details>
       </div>
     </section>
@@ -2497,8 +2438,8 @@
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Mattilha — Seu ponto de virada para evoluir mais rápido",
-    "description": "Conteúdos organizados, trilhas práticas e uma comunidade com foco em resultado. Acesso imediato, organização por trilhas e atualizações constantes.",
+    "name": "Mattilha — Ecossistema organizado para evoluir no digital",
+    "description": "Comunidade organizada no Discord: canais por área, networking real, materiais práticos e ambiente para aprender, trocar e evoluir no digital.",
     "inLanguage": "pt-BR",
     "publisher": { "@type": "Organization", "name": "Mattilha" }
   }
